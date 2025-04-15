@@ -1,0 +1,221 @@
+========================= Laravel ==============================
+constants in Laravel
+in the resource controller my request is going to edit method not destroy in Laravel
+Regular expression for validation in laravel.
+In Resource controller I dont want to use update method how can I achieve it.(In Routes we can exculde)
+Laravel Tinker
+Difference between migrate fresh and migrate refresh
+Foreignkey in table using migration.
+Relationship in Laravel
+How to use with in Laravel Relationship.
+Pivot table in laravel
+Template Engine
+Why we use blade template engine in Laravel.
+Base controller in Laravel.
+Queue job in Laravel
+Kernel.php is used for what?
+Events and Listners in Laravel
+Active Listner in Laravel
+Laravel Observer
+Laravel Events
+How to Event fire in Laravel
+How to create new file in the route folder.
+API 
+CRON in Laravel.
+Email
+Data tables in laravel
+What is JWT token and how it used for authentication in Laravel api. Where it is saved.
+Passport and Sanctum in Laravel APIs.
+Where is CSRF token saved in larval.
+what will happen if I create index.php instead of index.blade.php what will be harm if we do this.
+require and require one in Laravel. what is difference in both.
+SQL Injection in Laravel.
+SQL PDO methods
+Model Observers in php. Observer methods are calling directly in the application how to prevent it.
+Scheduler in Laravel when we call it called twice. Laravel overlapping. Laravel caching.
+Server Caching in Laravel.
+Optimize step to fast Laravel site.
+Laravel Debugger.
+prior methods Laravel optimization.
+Make and bind method in Laravel.
+what is middleware 
+Service Provide in Laravel. Number of service provider
+Service Container in Laravel. What is the purpose of it.
+Predefined methods in Laravel
+PHP artisan run queue. php artisan queuework
+Second highest salary using SQL. SELECT DISTINCT(Salary) FROM table ORDER BY Salary DESC LIMIT 1,1
+Invoke in Laravel
+Which is fastest Query Builder and Eloquent
+When to use Query Builder and Eloquent
+Laravel Collection Methods
+Laravel Indexing in Databases.
+Best method to fetch heavy data from sql.
+Backup of database in Laravel
+Send bulk email using Laravel. (Queue) Logging if error
+Explain Laravel's lifecycle from request to response.
+
+What is Lazy vs Eager loading in Eloquent?
+
+How does Laravel handle caching (Redis, file, database)?
+
+Unit Testing vs Feature Testing in Laravel.
+
+How do you optimize Laravel performance?
+
+Difference between Laravel Job and Event.
+
+Handling WebSockets with Laravel (e.g., Laravel Echo + Pusher).
+
+Laravel Octane vs traditional Laravel.
+
+Explain rate limiting in Laravel APIs.
+
+How to create packages in Laravel?
+1. Explain Laravel's Request Lifecycle in Detail
+What happens when a request hits public/index.php?
+
+How does routing get resolved?
+
+How are middleware processed?
+
+How is the response generated and sent?
+
+🔹 2. What are Service Containers and how do they enable Dependency Injection?
+How do bindings (bind(), singleton()) work?
+
+Explain contextual binding and automatic resolution.
+
+🔹 3. How would you implement a Repository + Service Pattern in Laravel?
+Why decouple business logic from controllers?
+
+How to register your interfaces with the container?
+
+🔹 4. Explain Laravel Events, Listeners, and Broadcasting
+How are custom events created?
+
+How do queued listeners work?
+
+Broadcasting over WebSockets (Pusher, Laravel Echo).
+
+🔹 5. Explain Laravel Jobs, Queues, and Workers
+Queue drivers supported by Laravel.
+
+Difference between sync, database, redis.
+
+Retry logic, failed jobs, horizon monitoring.
+
+🔹 6. Laravel Caching Strategy
+When to use cache (view caching, route caching, query caching)?
+
+Differences between file, database, redis drivers.
+
+How to cache Eloquent results?
+
+php
+Copy
+Edit
+Cache::remember('posts', 60, function () {
+    return Post::all();
+});
+🔹 7. Testing Strategy
+Explain how you'd write unit, feature, and integration tests.
+
+Use of mock objects, dependency injection, Mockery, and fakes.
+
+Laravel testing helpers: actingAs(), withoutMiddleware(), assertSee().
+
+🔹 8. Laravel Package Development
+How to structure a reusable Laravel package?
+
+What is composer.json autoload configuration?
+
+Registering service providers, publishing config files, and views.
+
+🔹 9. Task Scheduling
+How to schedule tasks using app/Console/Kernel.php?
+
+Explain ->daily(), ->weeklyOn(), ->everyMinute() etc.
+
+How would you schedule a queue worker?
+
+🔹 10. Multi-Tenancy in Laravel
+How would you handle separate database vs shared database tenants?
+
+Use of packages like tenancy/tenancy or custom tenant middleware.
+
+🔹 11. API Rate Limiting and Throttling
+Using ThrottleRequests middleware.
+
+Creating custom rate limiters in RouteServiceProvider.
+
+php
+Copy
+Edit
+RateLimiter::for('api', function (Request $request) {
+    return Limit::perMinute(60)->by($request->ip());
+});
+🔹 12. Advanced Eloquent Tips
+Global scopes, local scopes.
+
+Custom collections, accessors, mutators.
+
+Complex hasManyThrough, morphToMany relationships.
+
+🔹 13. Advanced Routing & Middleware
+Route caching & performance.
+
+Middleware groups, parameters.
+
+Subdomain routing, route prefixes, named groups.
+
+🔹 14. Security
+CSRF protection, XSS sanitization.
+
+How does Laravel handle encryption?
+
+Using signed URLs for secure routes.
+
+🔹 15. Performance Optimization
+config:cache, route:cache, view:cache
+
+Eager loading to avoid N+1 queries
+
+Query optimization and indexes
+
+Laravel Octane for high concurrency (Swoole/RoadRunner)
+
+🧪 Advanced Machine Test Ideas
+1. Build an API with OAuth2 using Laravel Passport
+Secure routes with scopes
+
+Token management
+
+Refresh token logic
+
+2. Implement Soft Deletes with Restoring & Permanent Delete
+Use softDeletes()
+
+Show soft-deleted records in a filterable list
+
+Restore and permanently delete
+
+3. Design a Notification System
+Email + database channels
+
+Queueing notifications
+
+Real-time broadcast (Pusher)
+
+4. Real-Time Chat Module
+Laravel Echo + Broadcasting + Events
+
+Pusher or Redis for broadcasting
+
+Frontend integration
+
+5. Design a Scalable Multi-Tenant SaaS Blog
+User-based tenant isolation
+
+Role-based access control
+
+Subdomain or folder-based multi-tenancy

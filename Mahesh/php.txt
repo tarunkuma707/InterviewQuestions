@@ -1,0 +1,233 @@
+difference b/w php 5,7,8
+https://www.bestinterviewquestion.com/blog/what-is-the-difference-between-php5-and-php7#:~:text=Though%20the%20predecessor%20was%20unofficially,the%20main%20one%20being%20performance.
+
+php 7 features
+Return type, Group use declaration, Anonymous class
+
+latest feateures in php 8
+https://kinsta.com/blog/php-8/
+
+PHP JIT (Just in Time Compiler)
+
+
+stable version of php
+
+php magic methods
+https://www.php.net/manual/en/language.oop5.magic.php
+
+
+best security pracitecs in php
+https://blog.sqreen.com/top-10-security-best-practices-for-php/
+
+Update your PHP version regularly
+Use prepared SQL statements
+Always validate user input
+Verify your SSL configuration
+Use URL encoding
+
+
+php traits
+Traits are a mechanism for code reuse in single inheritance languages such as PHP. A Trait is intended to reduce some limitations of single inheritance by enabling a developer to reuse sets of methods freely in several independent classes.
+A Trait is similar to a class. It is not possible to instantiate a Trait on its own.
+
+An inherited member from a base class is overridden by a member inserted by a Trait. The precedence order is that members from the current class override Trait methods, which in turn override inherited methods.
+
+If two Traits insert a method with the same name, a fatal error is produced, if the conflict is not explicitly resolved.
+use A, B {
+    B::smallTalk insteadof A;
+    A::bigTalk insteadof B;
+    B::bigTalk as talk;
+}
+
+Just as classes can make use of traits, so can other traits. By using one or more traits in a trait definition, it can be composed partially or entirely of the members defined in those other traits.
+trait HelloWorld {
+    use Hello, World;
+}
+
+Traits support the use of abstract methods
+trait Hello {
+    abstract public function getWorld();
+}
+
+
+Traits can define static variables, static methods and static properties.
+public function inc() {
+    static $c = 0;
+}
+
+trait StaticExample {
+	public static $static = 'foo';
+
+    public static function doSomething() {
+        return 'Doing something';
+    }
+}
+
+class Example {
+    use StaticExample;
+}
+
+echo Example::$static;
+Example::doSomething();
+
+
+Traits can also define properties.
+trait PropertiesTrait {
+    public $x = 1;
+}
+
+class PropertiesExample {
+    use PropertiesTrait;
+}
+
+$example = new PropertiesExample;
+$example->x;
+
+
+If a trait defines a property then a class can not define a property with the same name unless it is compatible (same visibility and initial value), otherwise a fatal error is issued.
+trait PropertiesTrait {
+    public $same = true;
+    public $different = false;
+}
+
+class PropertiesExample {
+    use PropertiesTrait;
+    public $same = true;
+    public $different = true; // Fatal error
+}
+
+
+php can we instantiate trait
+https://www.php.net/manual/en/language.oop5.traits.php#:~:text=It%20is%20not%20possible%20to,class%20members%20without%20requiring%20inheritance.
+https://stackoverflow.com/questions/38237962/why-traits-cannot-be-instantiated-directly
+
+php trait with same method
+https://stackoverflow.com/questions/23595665/php-dealing-with-traits-with-methods-of-same-name
+
+can we have a private function in trait
+https://stackoverflow.com/questions/47727003/can-traits-have-properties-methods-with-private-protected-visibility-can-tr#:~:text=1%20Answer&text=Traits%20can%20have%20properties%20and,they%20belong%20to%20class%20itself.&text=Traits%20cannot%20have%20constants.
+
+Traits can have properties and methods with private and protected visibility too. You can access them like they belong to class itself. There is no difference.
+
+
+constructor in trait
+https://stackoverflow.com/questions/12478124/how-to-overload-class-constructor-within-traits-in-php-5-4
+
+php trait overload constructor
+https://stackoverflow.com/questions/12478124/how-to-overload-class-constructor-within-traits-in-php-5-4
+https://laracasts.com/discuss/channels/laravel/conflict-between-trait-constructor-and-controller-constructor
+
+
+php difference between trait and interface
+https://www.geeksforgeeks.org/traits-vs-interfaces-in-php/#:~:text=The%20main%20difference%20between%20the,in%20a%20class%20in%20PHP.
+
+php trait vs abstract class
+https://stackoverflow.com/questions/39466521/difference-between-trait-and-an-abstract-class-in-php
+
+
+global variables
+
+
+php array merge vs combine
+array merge
+https://www.php.net/manual/en/function.array-merge.php
+
+
+array_merge ( array ...$arrays ) : array
+Merges the elements of one or more arrays together so that the values of one are appended to the end of the previous one. It returns the resulting array.
+
+If the input arrays have the same string keys, then the later value for that key will overwrite the previous one. If, however, the arrays contain numeric keys, the later value will not overwrite the original value, but will be appended.
+
+$array1 = array("color" => "red", 2, 4);
+$array2 = array("a", "b", "color" => "green", "shape" => "trapezoid", 4);
+$result = array_merge($array1, $array2);
+print_r($result);
+Array
+(
+    [color] => green
+    [0] => 2
+    [1] => 4
+    [2] => a
+    [3] => b
+    [shape] => trapezoid
+    [4] => 4
+)
+
+
+array combine
+https://www.php.net/manual/en/function.array-combine.php
+
+array_combine ( array $keys , array $values ) : array
+keys
+Array of keys to be used. Illegal values for key will be converted to string.
+
+Returns the combined array, false if the number of elements for each array isn't equal.
+
+print_r(array_combine(Array('a','a','b'), Array(1,2,3)));
+Array
+(
+    [a] => 2
+    [b] => 3
+)
+
+
+array walk
+https://www.php.net/manual/en/function.array-walk.php
+Apply a user supplied function to every member of an array
+
+$fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+
+function test_print($item2, $key)
+{
+    echo "$key. $item2\n";
+}
+
+array_walk($fruits, 'test_print');
+
+
+require vs include
+https://www.tutorialrepublic.com/php-tutorial/php-include-files.php#:~:text=Typically%20the%20require()%20statement,and%20stops%20the%20script%20execution.
+
+include_once
+https://www.php.net/manual/en/function.include-once.php#:~:text=The%20include_once%20statement%20includes%20and,again%2C%20and%20include_once%20returns%20true%20.
+
+require_once
+https://www.php.net/manual/en/function.require-once.php
+
+explode
+https://www.w3schools.com/Php/func_string_explode.asp
+explode(" ",$str)
+
+implode
+https://www.w3schools.com/Php/func_string_implode.asp
+implode(" ",$arr)
+
+php isset vs empty vs is_null
+https://phppot.com/php/isset-vs-empty-vs-is_null/
+
+php unset vs unlink
+https://www.geeksforgeeks.org/php-unset-vs-unlink-function/
+
+exception handling
+https://www.w3schools.com/php/php_exception.asp
+
+php how to call function with same name in super class
+https://stackoverflow.com/questions/3126740/how-to-call-method-with-the-same-name-from-parent-class-in-instance-scope
+
+php self vs parent
+https://www.thecreativedev.com/what-is-parent-and-self-in-php/
+https://www.php.net/manual/en/language.oop5.paamayim-nekudotayim.php
+
+access modifiers
+https://www.w3schools.com/php/php_oop_access_modifiers.asp
+
+php how to access private members of a class
+https://www.programiz.com/java-programming/examples/access-private-members
+
+php setter and getter methods
+https://www.tutorialspoint.com/what-are-getters-and-setters-methods-in-php
+
+php what are class members
+https://www.php.net/manual/en/language.oop5.properties.php
+https://stackoverflow.com/questions/15754043/php-class-members-and-methods
+

@@ -1,0 +1,315 @@
+react hooks:
+https://www.w3schools.com/REACT/react_hooks.asp
+(read this all)
+
+---------------------------------------
+React useState Hook
+https://www.w3schools.com/REACT/react_usestate.asp
+(read this all)
+
+-------------------------------------------
+React useEffect Hook
+https://www.w3schools.com/REACT/react_useeffect.asp
+(read this all)
+
+-------------------------------------------
+React useContext Hook
+https://www.w3schools.com/REACT/react_usecontext.asp
+(read this all)
+
+--------------------------------------------
+--------------------------------------------
+React useRef Hook>
+https://www.w3schools.com/REACT/react_useref.asp
+
+The useRef Hook allows you to persist values between renders.
+It can be used to store a mutable value that does not cause a re-render when updated.
+It can be used to access a DOM element directly.
+
+https://react.dev/reference/react/useRef
+useRef is a React Hook that lets you reference a value that’s not needed for rendering.
+const ref = useRef(initialValue)
+
+Parameters 
+initialValue: The value you want the ref object’s current property to be initially. It can be a value of any type. 
+
+Returns 
+useRef returns an object with a single property:
+current: Initially, it’s set to the initialValue you have passed. You can later set it to something else.
+On the next renders, useRef will return the same object.
+
+When you change the ref.current property, React does not re-render your component.
+
+Usage
+useRef returns a ref object with a single current property initially set to the initial value you provided.
+On the next renders, useRef will return the same object. You can change its current property to store information and read it later.
+
+Changing a ref does not trigger a re-render. This means refs are perfect for storing information that doesn’t affect the visual output of your component. For example, if you need to store an interval ID and retrieve it later, you can put it in a ref. To update the value inside the ref, you need to manually change its current property:
+intervalRef.current = intervalId;
+
+Later, you can read that interval ID from the ref
+const intervalId = intervalRef.current;
+
+By using a ref, you ensure that:
+You can store information between re-renders (unlike regular variables, which reset on every render).
+Changing it does not trigger a re-render (unlike state variables, which trigger a re-render).
+
+Changing a ref does not trigger a re-render, so refs are not appropriate for storing information you want to display on the screen. Use state for that instead.
+
+
+Manipulating the DOM with a ref 
+It’s particularly common to use a ref to manipulate the DOM. React has built-in support for this.
+
+First, declare a ref object with an initial value of null:
+
+Then pass your ref object as the ref attribute
+return <input ref={inputRef} />;
+
+After React creates the DOM node and puts it on the screen, React will set the current property of your ref object to that DOM node. Now you can access the <input>’s DOM node and call methods like focus():
+
+React will set the current property back to null when the node is removed from the screen.
+
+Focusing a text input:
+import { useRef } from 'react';
+
+export default function Form() {
+  const inputRef = useRef(null);
+
+  function handleClick() {
+    inputRef.current.focus();
+  }
+
+  return (
+    <>
+      <input ref={inputRef} />
+      <button onClick={handleClick}>
+        Focus the input
+      </button>
+    </>
+  );
+}
+
+--------------------------------------------
+React useReducer Hook
+https://www.w3schools.com/react/react_usereducer.asp
+
+The useReducer Hook is similar to the useState Hook.
+It allows for custom state logic.
+If you find yourself keeping track of multiple pieces of state that rely on complex logic, useReducer may be useful.
+
+Syntax
+The useReducer Hook accepts two arguments.
+useReducer(<reducer>, <initialState>)
+The reducer function contains your custom state logic and the initialState can be a simple value but generally will contain an object.
+
+The useReducer Hook returns the current state and a dispatch method.
+const [todos, dispatch] = useReducer(reducer, initialTodos);
+
+https://www.geeksforgeeks.org/reactjs-usereducer-hook/
+The useReducer hook is an alternative to the useState hook that is preferred when you have complex state logic.
+
+https://www.geeksforgeeks.org/reactjs-hooks/
+useReducer: For complex state management.
+
+https://react.dev/reference/react/useReducer
+useReducer is a React Hook that lets you add a reducer to your component.
+const [state, dispatch] = useReducer(reducer, initialArg, init?)
+
+import { useReducer } from 'react';
+
+function reducer(state, action) {
+  // ...
+}
+
+function MyComponent() {
+  const [state, dispatch] = useReducer(reducer, { age: 42 });
+  // ...
+
+Parameters 
+reducer: The reducer function that specifies how the state gets updated. It must be pure, should take the state and action as arguments, and should return the next state. State and action can be of any types.
+initialArg: The value from which the initial state is calculated. It can be a value of any type.
+
+Returns 
+useReducer returns an array with exactly two values:
+The current state. During the first render, it’s set to initialArg.
+The dispatch function that lets you update the state to a different value and trigger a re-render.
+
+useReducer is a Hook, so you can only call it at the top level of your component or your own Hooks. You can’t call it inside loops or conditions.
+
+dispatch function 
+The dispatch function returned by useReducer lets you update the state to a different value and trigger a re-render. You need to pass the action as the only argument to the dispatch function:
+
+const [state, dispatch] = useReducer(reducer, { age: 42 });
+
+function handleClick() {
+  dispatch({ type: 'incremented_age' });
+  // ...
+
+React will set the next state to the result of calling the reducer function you’ve provided with the current state and the action you’ve passed to dispatch.
+
+Parameters 
+action: The action performed by the user. It can be a value of any type. By convention, an action is usually an object with a type property identifying it and, optionally, other properties with additional information.
+Returns 
+dispatch functions do not have a return value.
+
+Adding a reducer to a component
+import { useReducer } from 'react';
+
+function reducer(state, action) {
+  if (action.type === 'incremented_age') {
+    return {
+      age: state.age + 1
+    };
+  }
+  throw Error('Unknown action.');
+}
+
+export default function Counter() {
+  const [state, dispatch] = useReducer(reducer, { age: 42 });
+
+  return (
+    <>
+      <button onClick={() => {
+        dispatch({ type: 'incremented_age' })
+      }}>
+        Increment age
+      </button>
+      <p>Hello! You are {state.age}.</p>
+    </>
+  );
+}
+
+https://react.dev/learn/extracting-state-logic-into-a-reducer
+Extracting State Logic into a Reducer
+Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called a reducer.
+
+--------------------------------------------
+React Custom Hooks
+https://www.w3schools.com/react/react_customhooks.asp
+
+--------------------------------------------
+React useCallback Hook
+https://www.w3schools.com/react/react_usecallback.asp
+
+The React useCallback Hook returns a memoized callback function.
+"Memoized" means something has been cached or optimized using memoization, a technique that speeds up programs by storing and reusing results
+Think of memoization as caching a value so that it does not need to be recalculated.
+
+This allows us to create functions that will not automatically run on every render.
+The useCallback Hook only runs when one of its dependencies update.
+This can improve performance.
+
+The useCallback and useMemo Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
+
+Problem
+One reason to use useCallback is to prevent a component from re-rendering unless its props have changed.
+Every time a component re-renders, its functions get recreated.
+
+Solution
+To fix this, we can use the useCallback hook to prevent the function from being recreated unless necessary.
+Use the useCallback Hook to prevent the Todos component from re-rendering needlessly:
+
+import Todos from "./Todos";
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
+
+  const increment = () => {
+    setCount((c) => c + 1);
+  };
+  const addTodo = useCallback(() => {
+    setTodos((t) => [...t, "New Todo"]);
+  }, [todos]);
+
+  return (
+    <>
+      <Todos todos={todos} addTodo={addTodo} />
+      <hr />
+      <div>
+        Count: {count}
+        <button onClick={increment}>+</button>
+      </div>
+    </>
+  );
+};
+
+Now the Todos component will only re-render when the todos prop changes.
+
+https://react.dev/reference/react/useCallback
+useCallback
+useCallback is a React Hook that lets you cache a function definition between re-renders.
+const cachedFn = useCallback(fn, dependencies)
+
+import { useCallback } from 'react';
+export default function ProductPage({ productId, referrer, theme }) {
+  const handleSubmit = useCallback((orderDetails) => {
+    post('/product/' + productId + '/buy', {
+      referrer,
+      orderDetails,
+    });
+  }, [productId, referrer]);
+
+Parameters 
+fn: The function value that you want to cache.
+dependencies
+
+Returns 
+On the initial render, useCallback returns the fn function you have passed.
+During subsequent renders, it will either return an already stored fn function from the last render (if the dependencies haven’t changed), or return the fn function you have passed during this render.
+
+--------------------------------------------
+React useMemo Hook
+https://www.w3schools.com/react/react_usememo.asp
+
+The React useMemo Hook returns a memoized value.
+Think of memoization as caching a value so that it does not need to be recalculated.
+The useMemo Hook only runs when one of its dependencies update.
+This can improve performance.
+The useMemo and useCallback Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
+
+Performance
+The useMemo Hook can be used to keep expensive, functions from needlessly running.
+In this example, we have an expensive function that runs on every render.
+When changing the count or adding a todo, you will notice a delay in execution.
+
+Use useMemo
+To fix this performance issue, we can use the useMemo Hook to memoize the expensiveCalculation function. This will cause the function to only run when needed.
+We can wrap the expensive function call with useMemo.
+The useMemoHook accepts a second parameter to declare dependencies. The expensive function will only run when its dependencies have changed.
+In the following example, the expensive function will only run when count is changed and not when todo's are added.
+
+import { useState, useMemo } from "react";
+//
+const calculation = useMemo(() => expensiveCalculation(count), [count]);
+//
+const expensiveCalculation = (num) => {
+  console.log("Calculating...");
+  for (let i = 0; i < 1000000000; i++) {
+    num += 1;
+  }
+  return num;
+};
+
+https://react.dev/reference/react/useMemo
+useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+const cachedValue = useMemo(calculateValue, dependencies)
+
+import { useMemo } from 'react';
+function TodoList({ todos, tab }) {
+  const visibleTodos = useMemo(
+    () => filterTodos(todos, tab),
+    [todos, tab]
+  );
+  // ...
+}
+
+Parameters
+calculateValue: The function calculating the value that you want to cache.
+dependencies
+
+Returns 
+On the initial render, useMemo returns the result of calling calculateValue.
+During next renders, it will either return an already stored value from the last render (if the dependencies haven’t changed), or call calculateValue again, and return the result that calculateValue has returned.
+
+--------------------------------------------

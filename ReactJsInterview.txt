@@ -1,0 +1,59 @@
+============= React ============
+Advatange of ReactJs
+States and Props
+Why we create state instead of creating variable in ReactJs
+Disadvantange of ReactJs
+Why we reactJs
+Reconcillation full process
+How browser understand ReactJs
+States are Props
+Hooks
+usecallback
+Use memo callback
+useRef Hooks
+class life cycle
+Life Cycle in reactJs
+Types of Components
+Pure Component
+Component life cycle
+Higher order component with example
+Middleware in React
+Middleware with Redux
+Prop Drilling
+prob drilling
+State Lifting UP
+UseState and UseReducer hook difference
+UseRef and UseEffect difference
+When to use ContextAPI and Redux
+Redux main piller
+CodeReduce
+UseMemo and UseCallback difference
+Usereducer and userselector
+TypeScript
+Unit Testing in React
+Clousure
+Multi language support
+Why we should pass key attribute in react list
+why should not pass index as a key in react elements what will problem if we pass index.
+Server side rendering and client side rendering.(CSR and SSR)
+Reconcilation in React
+Rendering of Large list in ReactJs
+Virtualization, React.window
+Memorization 
+memorize
+Once
+Prevent unnecessary rendering in reactjs
+React Unittesting 
+How browser understanding code
+React is oneway data binding or two way databiding
+Virtual Dom
+Difference between Virtual Dom and real dom
+Redux
+Difference between Lazy Codding and Code Splitting
+Render Props
+React Portals
+Profilers
+
+================ Redux
+ContextAPI and difference in Context API and Redux
+We have state management in react then why we are using redux

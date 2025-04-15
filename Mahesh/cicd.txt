@@ -1,0 +1,89 @@
+create nodejs cicd pipeline using jenkins>
+https://testrig.medium.com/building-a-jenkins-pipeline-for-your-node-js-application-a-step-by-step-guide-281c20bfe8d7
+https://www.jenkins.io/doc/tutorials/build-a-node-js-and-react-app-with-npm/
+
+create nodejs cicd pipeline using jenkins and docker
+https://www.youtube.com/watch?v=9HgyfvlQuE8
+
+create nodejs cicd pipeline using jenkins on windows
+https://www.youtube.com/watch?v=xWCQpSDArb4
+
+--------------------------------------------------
+what is jenkins
+https://www.geeksforgeeks.org/what-is-jenkins/
+
+What is Jenkins?
+Jenkins is a tool that is used for automation. It is mainly an open-source server that allows all the developers to build, test and deploy software. It is written in Java and runs on java only. By using Jenkins we can make a continuous integration of projects
+
+Why Organizations use Jenkins?
+Jenkins facilitates the automation of several stages of the software development lifecycle, including application development, testing, and deployment.
+Continuous delivery (CD) and integration (CI) pipelines can be created and managed with Jenkins. The development, testing, and deployment of software applications are automated using CI/CD pipelines.
+
+What is Jenkins CI/CD Pipeline?
+Jenkins CI/CD stands for Continuous Integration / Continuous Deployment first let us try to understand what is a pipeline. In computing, a pipeline is a set of stages or processes linked together to form a processing system. Each stage in the pipeline takes an input, processes it in accordance with a set of rules, and then sends the outputs to the stage that follows. 
+
+Frequently, the pipeline’s overall output is its final step’s output. like the procedures outlined below
+Build Application
+Push Repository
+Test code
+Deploy to Server
+
+All the steps mentioned above will perform in sequence one after the other if any step/stage get failed it will not move forward to another step/stage until the previous step got a success.
+
+What is Jenkins Continuous Integration (CI)?
+Jenkins Continuous integration means whenever new code is committed to remote repositories like GitHub. Continuous Integration (CI) will continuously build, tested, and merged into a shared repository.
+
+What is Jenkins Continuous Deployment/Delivery (CD)?
+Continuous Deployment
+Continuous Deployment means automating the further stages of the pipeline automatically or manually deploying the application/code to different environments like Dev, Test, and Production. Automating the build is the main component of Continuous Integration and Continuous Deployment.
+
+Continuous Delivery
+Each and every build that passed all automated tests and was able to be fully automated and delivered into production only required one click of human intervention is called Continuous Delivery.
+
+What is Jenkins Pipeline?
+DevOps professionals mostly work with pipelines because pipelines can automate the processes like building, testing, and deploying the application.
+
+Job chaining– Connecting the jobs with each other that is whenever the earlier job will run fine then Jenkins will go to the next job. This is also known as a pipeline.
+
+--------------------------------------------------
+what is docker
+https://www.geeksforgeeks.org/introduction-to-docker/
+
+What is Docker?
+Docker is an open-source containerization platform by which you can pack your application and all its dependencies into a standardized unit called a container. Containers are light in weight which makes them portable. You can run the docker image as a docker container in any machine where docker is installed without depending on the operating system.
+
+Why Docker is popular?
+Docker gained its popularity due to its impact on the software development and deployment. 
+The following are the some of the main reasons for docker becoming popular:
+Portability: Docker facilitates the developers in packaging their applications with all dependencies into a single lightweight containers. It facilities in ensuring the consistent performance across the different computing environments.
+
+
+Key Components of Docker
+The following are the some of the key components of Docker:
+
+Docker Engine: It is a core part of docker, that handles the management of containers.
+Docker File: It is a script that containing instructions to build a docker image.
+Docker Image: It is a read-only template that is used for creating containers, containing the application code and dependencies.
+Docker container: It is a runtime instance of an image, containing the application code and dependencies.
+Docker Hub: It is a cloud based repository that is used for finding and sharing the container images.
+
+What is a Dockerfile?
+The Dockerfile contains instructions for generating a Docker image. Dockerfile will define the processes to quickly produce an image. While creating your application, you should create a Dockerfile
+
+What is Docker Image?
+It is a file, used to execute code in a Docker container. They are a set of instructions used to create docker containers. Docker Image is an executable package of software that includes everything needed to run an application. This image informs how a container should instantiate, determining which software components will run and how. Docker Container is a virtual environment that bundles application code with all the dependencies required to run the application.
+
+What is Docker Container?
+Docker container is a runtime instance of an image. Allows developers to package applications with all parts needed such as libraries and other dependencies. Docker Containers are runtime instances of Docker images. Containers contain the whole kit required for an application
+
+What is Docker Hub?
+Docker Hub is a repository service and it is a cloud-based service where people push their Docker Container Images and also pull the Docker Container Images from the Docker Hub anytime or anywhere via the internet. Generally it makes it easy to find and reuse images. It provides features such as you can push your images as private or public registry where you can store and share Docker images.
+
+Docker Engine
+The software that hosts the containers is named Docker Engine.
+
+
+What is Docker For AWS?
+AWS provides the Amazon Elastic Container Service ( Amazon ECS ), it is an fully managed container service by which you can deploy, scale and manage the docker containers.
+
+--------------------------------------------------

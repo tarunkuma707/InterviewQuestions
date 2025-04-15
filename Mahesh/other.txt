@@ -1,0 +1,131 @@
+SDLC
+https://www.betsol.com/blog/7-stages-of-sdlc-how-to-keep-development-teams-running/
+Stage 1: Project Planning.
+Stage 2: Gathering Requirements & Analysis.
+Stage 3: Design.
+Stage 4: Coding or Implementation.
+Stage 5: Testing.
+Stage 6: Deployment.
+Stage 7: Maintenance.
+
+agile vs waterfall
+https://www.forbes.com/advisor/business/agile-vs-waterfall-methodology/#:~:text=The%20main%20difference%20is%20that,different%20phases%20of%20the%20project.
+https://www.guru99.com/waterfall-vs-agile.html
+
+The main difference is that Waterfall is a linear system of working that requires the team to complete each project phase before moving on to the next one while Agile encourages the team to work simultaneously on different phases of the project.
+
+--------------------------------------------------
+--------------------------------------------------
+software design patterns
+
+Design patterns are great problem solving templates that developers can apply to their projects.
+Singleton
+The singleton pattern is probably one of the most known design patterns out there. It is a creational pattern because it ensures that no matter how many times you try to instantiate a class, you’ll only have one instance available.
+
+
+software design pattern vs architecture
+https://stackoverflow.com/questions/4243187/whats-the-difference-between-design-patterns-and-architectural-patterns
+
+A large complex software goes through a series of deconstruction at different levels. At large level, architectural patterns are the tools. At smaller level, design patterns are the tools
+
+Design patterns are usually associated with code level commonalities. It provides various schemes for refining and building smaller subsystems. It is usually influenced by programming language.
+
+While architectural patterns are seen as commonality at higher level than design patterns. Architectural patterns are high-level strategies that concerns large-scale components, the global properties and mechanisms of a system.
+
+--------------------------------------------------
+node js design patterns(middleware, module, promise)
+https://medium.com/@techsuneel99/design-patterns-in-node-js-31211904903e
+
+Introduction to Design Patterns
+Design patterns are tried-and-true solutions to recurring problems that software developers encounter during their coding journey. They provide a structured approach to solving challenges and promote best practices in software architecture. By incorporating design patterns, developers can create more robust, maintainable, and extensible codebases.
+
+Why Design Patterns Matter in Node.js
+Node.js, known for its non-blocking event-driven architecture, presents unique challenges and opportunities in software design. Applying design patterns tailored to Node.js can lead to more efficient and optimized applications. Let’s explore some key design patterns that are particularly valuable in the Node.js ecosystem:
+
+Middleware Pattern
+Node.js’s middleware architecture is widely used for handling requests and responses in web applications. The Middleware pattern involves a chain of functions that process a request sequentially. Each function can modify the request or response before passing it to the next function in the chain.
+
+Module Pattern
+The module pattern is one of the most basic but fundamental patterns in Node.js. It allows you to organize your code into separate files or modules that encapsulate specific functionality.
+
+Promise pattern
+Promises are a pattern for asynchronous programming in Node.js.
+
+--------------------------------------------------
+node js architecture patterns(single threaded - event driven - non-blocking IO - asynchronous, mvc, rest, graphql)
+https://dev.to/sasithwarnakafonseka/nodejs-architectural-patterns-with-examples-1335
+
+Node.js, with its non-blocking, event-driven architecture, has become a popular choice for building a wide range of applications. When developing with Node.js, it's essential to choose the right architectural pattern to match your project's requirements. In this article, we'll explore several Node.js architectural patterns:
+
+1. MVC (Model-View-Controller)
+The Model-View-Controller (MVC) pattern is a widely-used architectural pattern for web applications. It separates an application into three components:
+Model: Handles data and business logic.
+View: Handles presentation and user interface.
+Controller: Manages the interaction between Model and View.
+
+2. RESTful API
+Node.js is a popular choice for building RESTful APIs. 
+
+3. Microservices
+Microservices architecture involves breaking down a complex application into small, independent services. Each service has its own functionality and communicates with others via APIs. Node.js is well-suited for building microservices due to its lightweight nature and scalability.
+
+4. Real-time Applications
+Node.js is an excellent choice for real-time applications. Libraries like Socket.io make it easy to implement real-time features.
+
+5. Event-Driven Architecture
+Node.js's event-driven nature makes it suitable for an Event-Driven Architecture.
+
+6. GraphQL
+GraphQL is a query language for APIs that allows clients to request exactly the data they need. Node.js can be used to build GraphQL servers, making it suitable for situations where clients have diverse data requirements.
+
+--------------------------------------------------
+--------------------------------------------------
+react design patterns(hooks, props, components)
+https://baguilar6174.medium.com/react-design-patterns-6ab55c5ebafb
+
+In the world of frontend development with React, the application of design patterns has become an essential practice.
+The fundamental purpose of these patterns is to address concrete problems in component development by simplifying the management of state, logic.
+
+Among the most common examples of design patterns applied to React are custom hooks, higher-order components (HOCs), and prop-based rendering techniques. 
+
+Why use patterns in React?
+These patterns provide a consistent structure that streamlines the development process and improves overall software quality.
+
+Custom Hook Pattern
+The Custom Hook pattern in React is a technique that allows encapsulating the logic of a component in a reusable function. Custom Hooks are JavaScript functions that use the Hooks provided by React (such as useState, useEffect, useContext, etc.) and can be shared between components to effectively encapsulate and reuse logic.
+
+HOC Pattern
+The Higher Order Component (HOC) pattern is a composition technique in React that is used to reuse logic between components. A HOC is a function that takes a component and returns a new component with additional or extended functionality.
+
+Control Props Pattern
+The Control Props pattern is a technique in React that allows a component to control its internal state through props provided by the parent component. Instead of the component handling its own state internally, it delegates control of the state to the parent component via props, allowing the parent to manipulate and control the state of the child component as needed.
+
+--------------------------------------------------
+react architecture patterns(hooks, props, components)
+https://devshi-bambhaniya.medium.com/a-complete-guide-to-react-architecture-patterns-ea386d2ba327
+
+What is React Architecture?
+React architecture refers to the structure and organization of a React application. It encompasses the way components are designed, how data flows between them, and how the state is managed.
+
+Key Concepts of React Architecture
+
+1. Components: The Building Blocks
+Components are the core units of a React application. They are self-contained pieces of code that define how a part of the user interface (UI) should appear and behave.
+Functional Components: These are simple components defined using JavaScript functions. They are easy to write and understand, making them ideal for smaller, stateless components.
+
+2. State Management: Keeping Track of Data
+State refers to the data that changes over time within an application. Managing the state is a critical aspect of React architecture.
+
+Local State: This is the state that is managed within a single component. It’s useful for keeping track of data that is only relevant to that particular component.
+Global State: This is the state that is shared across multiple components. Managing a global state is more complex and often requires tools like Redux or the Context API to handle it efficiently.
+
+3. Props: Passing Data Around
+Props (short for properties) are a way for components to communicate with each other. They are read-only pieces of data passed from parent components to child components.
+
+4. Data Flow: One-Way Binding
+In React, data flows in a unidirectional manner, meaning it moves from parent components to child components.
+
+5. Hooks: Enhancing Functional Components
+Hooks are special functions that allow you to use state and other React features in functional components
+
+--------------------------------------------------

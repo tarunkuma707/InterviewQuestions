@@ -1,0 +1,522 @@
+worked on angular: 11
+
+angular latest stable version
+As of April 2, 2025, the latest stable version of Angular is 19.0.0, released on November 19, 2024. 
+
+what is difference between javascript and jquery
+https://bsscommerce.com/blog/javascript-jquery-ajax-are-they-the-same-or-different/#:~:text=The%20main%20difference%20among%20the,or%20framework)%20built%20with%20JavaScript.&text=At%20the%20same%20time%2C%20jQuery,to%20program%20for%20the%20browser.
+
+The main difference is that JavaScript is client-side, i.e., in the browser scripting language, whereas jQuery is a library (or framework) built with JavaScript.
+
+
+difference b/w javascript and angular
+https://www.tutorialspoint.com/difference-between-javascript-and-angularjs#:~:text=JavaScript%20is%20a%20scripting%20language,adds%20new%20functionalities%20to%20HTML.
+
+JavaScript is a scripting language that is used to generate dynamic HTML pages with interactive effects on a webpage that runs in the web browser of the client. On the other hand, Angular is a framework that is built on TypeScript. Its primary purpose is to facilitate the creation of dynamic and single-page web applications (SPAs).
+
+
+typescript vs javascript
+https://www.guru99.com/typescript-vs-javascript.html#:~:text=TypeScript%20and%20JavaScript.-,KEY%20DIFFERENCE,is%20a%20superset%20of%20JavaScript.&text=Comparing%20TypeScript%20and%20JS%2C%20Typescript,doesn't%20support%20this%20feature.
+https://medium.com/@shivam_99875/typescript-vs-javascript-a-quick-comparison-with-code-examples-6ed11d58d251
+
+JavaScript is a scripting language which helps you create interactive web pages whereas Typescript is a superset of JavaScript.
+Typescript code needs to be compiled while JavaScript code doesn’t need to compile.
+
+Key Differences Explained
+Static vs Dynamic Typing:
+- JavaScript: Dynamically typed; variable types are known at runtime.
+- TypeScript: Statically typed; variable types are known at compile time.
+
+Class and Interface Support (TypeScript):
+- TypeScript supports modern OOP features like classes and interfaces, enabling more structured and maintainable code.
+- JavaScript also supports classes, but TypeScript’s implementation is more robust(strong) and includes interfaces.
+
+
+difference b/w angularjs and angular
+https://gorrion.io/blog/angularjs-vs-angular
+Angular is based on TypeScript while AngularJS is based on JavaScript.
+AngularJS mainly works on the model view controller, i.e. MVC concept, which defines the behavior of data, logic and view layer.
+Angular mainly works on the model view view model, i.e. MVVM concept, i.e. two way data binding.
+
+difference b/w angular 11 and angular 19
+
+------------------------------------------
+------------------------------------------
+how to setup angular
+https://angular.io/guide/setup-local
+npm install -g @angular/cli
+
+what is aot
+https://angular.io/guide/aot-compiler
+
+The Angular ahead-of-time (AOT) compiler converts your Angular HTML and TypeScript code into efficient JavaScript code during the build phase before the browser downloads and runs that code. Compiling your application during the build process provides a faster rendering in the browser.
+
+aot vs jit
+https://dev.to/imbilal1/what-are-aot-jit-compiler-in-angular-2-488h#:~:text=The%20main%20differences%20between%20JIT,and%20serve%20locally)%20CLI%20commands.
+
+Just-in-Time (JIT), compiles your app in the browser at runtime.
+Ahead-of-Time (AOT), compiles your app at build time on the server.
+
+JIT compilation is the default when you run the ng build (build only) or ng serve (build and serve locally) CLI commands. This is for development.
+For AOT compilation, include the --aot option with the ng build or ng serve command. 
+
+how to create angular build
+https://angular.io/cli/build
+
+build command:
+ng build --aot
+ng build --prod --aot --optimization=true
+
+angular create new project
+https://cli.angular.io/
+ng new app
+ng serve -o
+
+default angular port
+4200
+
+change angular port
+https://stackoverflow.com/questions/37154813/angular-cli-server-how-to-specify-default-port
+
+ng serve --port 1337
+
+what is ng
+https://intellipaat.com/community/26969/what-does-the-ng-stand-for-in-angular-js-directives#:~:text=Vishal%20(107k%20points)-,In%20Angular.,in%20future%20versions%20of%20Angular.
+
+the prefix ng stands for "Angular"
+
+
+npm
+https://www.w3schools.com/whatis/whatis_npm.asp
+Node Package Manager
+package manager for JavaScript
+
+how to store jwt token in angular 7
+https://stackoverflow.com/questions/60034900/where-to-store-jwt-token-in-angular
+
+------------------------------------------
+------------------------------------------
+services
+https://www.tutorialspoint.com/angular7/angular7_services.htm
+
+With services, we can access methods and properties across other components in the entire project.
+
+ng g service myservice
+ng generate service my-service
+
+myservice.service.ts
+import { Injectable } from '@angular/core';
+@Injectable({
+   providedIn: 'root' 
+}) 
+export class MyserviceService {
+   constructor() { }
+}
+
+include the service created in the main parent app.module.ts.
+import { MyserviceService } from './myservice.service';
+providers: [MyserviceService],
+
+To use the service in a component, you first need to inject it into the component's constructor.
+app.component.ts
+import { MyserviceService } from './myservice.service';
+constructor(private myservice: MyserviceService) {}
+
+------------------------------------------
+providers
+https://angular.io/api/core/NgModule#providers
+https://medium.com/claritydesignsystem/making-full-use-of-angular-providers-part-1-14609a09514b#:~:text=A%20provider%20is%20an%20object,other%20classes%20instantiated%20by%20Angular.&text=A%20service%20is%20a%20particular,see%20in%20the%20Angular%20tutorial.
+
+A provider is an object declared to Angular so that it can be injected in the constructor of your components, directives and other classes instantiated by Angular.
+A service is a particular type of provider.
+
+------------------------------------------
+httpclientmodule
+https://angular.dev/api/common/http/HttpClientModule
+https://angular.dev/api/common/http/HttpClient
+
+HttpClient
+HttpClient service
+Performs HTTP requests. This service is available as an injectable class, with methods to perform HTTP requests.
+
+------------------------------------------
+------------------------------------------
+pipes
+https://angular.io/guide/pipes
+https://www.javatpoint.com/angular-7-pipes
+https://medium.com/@aqeelabbas3972/pipes-in-angular-6a871589299d
+
+Pipes provide a simple and efficient way to transform data before displaying it in the view.
+
+Types of pipes:
+Pure and Impure Pipes(Could be Built-in or Custom)
+In Angular, pipes can be either pure or impure.
+
+To create a pure pipe in Angular, you need to add the pure: true option to the @Pipe decorator, like this:
+@Pipe({
+  name: 'myPurePipe',
+  pure: true
+})
+
+angular 8 pure and impure pipes
+https://stackoverflow.com/questions/39285550/what-is-an-impure-pipe-in-angular
+
+A pure pipe is only called when Angular detects a change in the value or the parameters passed to a pipe.
+An impure pipe is called for every change detection cycle no matter whether the value or parameter(s) changes.
+Examples of Impure Pipes
+a. Async Pipe
+b. Json Pipe
+
+
+Built-in Pipes:
+Lowercase pipe
+used to transform a string into a lowercased string.
+
+Uppercase pipe
+used to transform a string into an uppercased string.
+
+Date pipe
+used to format a date object
+{{presentDate | date }}
+{{presentDate | date:'shortDate' }}
+
+Currency pipe
+used to format a number as a currency value.
+<p>Price: {{ price | currency }}</p>
+<p>Price: {{ price | currency:'EUR' }}</p>
+
+Json pipe
+used to transform an object into a JSON string.
+<pre>{{ myObject | json }}</pre>
+
+
+Async Pipe
+If data comes in the form of observables, then Async pipe subscribes to an observable and returns the transmitted values.
+
+import { Observable, Observer } from 'rxjs';
+export class TestComponent implements OnInit {
+   timeChange = new Observable<string>((observer: Observer>string>) => {
+      setInterval(() => observer.next(new 
+      Date().toString()), 1000); 
+   }); 
+}
+Here,
+
+The Async pipe performs subscription for time changing in every one seconds and returns the result whenever gets passed to it. Main advantage is that, we don’t need to call subscribe on our timeChange and don’t worry about unsubscribe, if the component is removed.
+
+Add the below code inside your test.component.html.
+
+<div> 
+   Seconds changing in Time: {{ timeChange | async }}
+</div>
+Now, run the application, you could see the seconds changing on your screen.
+
+
+You can chain pipes so that the output of one pipe becomes the input to the next.
+{{ birthday | date | uppercase}}
+
+
+Custom pipe:
+To mark a class as a pipe, apply the @Pipe decorator to the class.
+import {Pipe, PipeTransform} from '@angular/core';  
+@Pipe ({  
+  name : 'sqrt'  
+})  
+export class SqrtPipe implements PipeTransform {  
+
+
+We can add parameter in pipe using : character
+short date :- {{ presentDate | date:'shortDate' }} <br/>
+
+------------------------------------------
+decorator(annotation)
+https://angular.io/guide/glossary#decorator--decoration
+A function that modifies a class or property definition.
+
+@Component
+@Pipe
+@Input
+@Output
+@NgModule
+@Directive
+
+------------------------------------------
+NgModule
+https://angular.io/api/core/NgModule
+https://angular.io/guide/ngmodules
+
+Decorator that marks a class as an NgModule
+Option : providers, imports, exports
+
+------------------------------------------
+------------------------------------------
+Note: Compare following:
+Provider - Provider is an Object
+Decorator(annotation) - Decorator is a Function
+Directive - Directive is a Class
+
+
+directive
+https://www.sitepoint.com/practical-guide-angular-directives/
+https://angular.io/guide/built-in-directives
+https://angular.io/guide/attribute-directives
+
+Directives are classes that add additional behavior to elements in your Angular applications.
+Directives are build in as well as custom.
+Types: Structural, attribute, component directives.
+
+Structural Directives: Structural directives start with a * sign. These directives are used to manipulate and change the structure of the DOM elements. 
+For example, *ngIf and *ngFor, ng-repeat.
+
+
+Attribute Directives: Attribute directives are used to change the look and behavior of the DOM elements. 
+For example: ngClass, ngStyle, hidden etc.
+
+Creating an attribute directive:
+
+ng g directive highlight
+ng generate directive highlight
+
+highlight.directive.ts
+
+import {Directive, ElementRef} from '@angular/core';
+@Directive({
+    selector:'[my-error]'
+})
+export class HighlightDirective {
+
+app.module.ts
+
+<h1 my-error>Hello {{name}}</h1>
+
+
+Component directive
+https://www.geeksforgeeks.org/angular-7-directives/
+
+It forms the main class and is declared by @Component. It contains certain parameters some of them are shown in this example. 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+------------------------------------------
+------------------------------------------
+observable
+https://angular.io/guide/observables-in-angular
+https://angular.io/guide/observables
+
+Angular makes use of observables as an interface to handle a variety of common asynchronous operations. 
+For example: The HTTP module uses observables to handle AJAX requests and responses.
+
+observer in angular
+https://medium.com/fuzzycloud/angular-and-observable-4bf890b2a282#:~:text=Angular%20uses%20the%20Observer%20pattern,acted%20on%20in%20some%20way.&text=Observable%20continue%20to%20be%20observed%20after%20the%20event%20occurs.
+
+Observable are just that — things you wish to observe and take action on. Angular uses the Observer pattern which simply means — Observable objects are registered, and other objects observe (in Angular using the subscribe method) them and take action when the observable object is acted on in some way. They are similar to promises, but with some differences. Promises execute once and then are done. Observable continue to be observed after the event occurs. Observable can also be cancelled (you can stop observing an object during runtime). Promises cannot be cancelled — which makes sense, since you’re only executing the promise one time.
+
+rxjs in angular
+To use observable, Angular uses a third-party library called Reactive Extensions (RxJS).
+
+promise
+https://codecraft.tv/courses/angular/es6-typescript/promises/
+
+observalbe vs promise
+https://medium.com/javascript-everyday/javascript-theory-promise-vs-observable-d3087bc1239a
+
+difference between observable and promise in angular
+https://www.syncfusion.com/blogs/post/angular-promises-versus-observables.aspx#:~:text=Promises%20deal%20with%20one%20asynchronous,over%20a%20period%20of%20time.&text=Emit%20multiple%20values%20over%20a,using%20the%20subscribe()%20method.
+
+Promises deal with one asynchronous event at a time, while observables handle a sequence of asynchronous events over a period of time.
+
+Observables												             Promises
+Emit multiple values over a period of time.				    Emit a single value at a time.
+
+Are lazy: they’re not executed until we subscribe         Are not lazy: execute immediately after creation.
+to them using the subscribe() method.					
+
+Have subscriptions that are cancellable using the         Are not cancellable. 
+unsubscribe() method, which stops the listener 
+from receiving further values.	
+
+subscribe method in angular
+https://angular.io/guide/observables
+
+To execute the observable you have created and begin receiving notifications, you call its subscribe() method, passing an observer. This is a JavaScript object that defines the handlers for the notifications you receive. The subscribe() call returns a Subscription object that has an unsubscribe() method, which you call to stop receiving notifications.
+
+
+difference between observable and observer in angular
+https://www.infoworld.com/article/2077258/observer-and-observable.html#:~:text=Observer%20%3A%20Any%20object%20that%20wishes,object%20may%20register%20an%20interest.
+https://stackoverflow.com/questions/51520584/what-is-observable-observer-and-subscribe-in-angular
+
+Observer: Any object that wishes to be notified when the state of another object changes.
+Observable: Any object whose state may be of interest, and in whom another object may register an interest.
+
+
+how to access the data returned from a promise
+https://bobbyhadz.com/blog/javascript-access-value-of-promise#:~:text=Use%20the%20Promise.,the%20promise%20as%20a%20parameter.
+Use the Promise. then() method to access the value of a promise. The then() method takes a function, which gets passed the resolved value of the promise as a parameter.
+
+------------------------------------------
+------------------------------------------
+lazy loading in angular
+https://angular.io/guide/lazy-loading-ngmodules
+By default, NgModules are eagerly loaded. This means that as soon as the application loads, so do all the NgModules, whether they are immediately necessary or not. For large applications with lots of routes, consider lazy loading —a design pattern that loads NgModules as needed.
+
+To lazy load Angular modules, use loadChildren (instead of component) in your AppRoutingModule routes
+
+lazy loading vs eager loading
+
+------------------------------------------
+reactive vs template driven forms
+https://www.pluralsight.com/guides/difference-between-template-driven-and-reactive-forms-angular
+
+Template-driven forms make use of the "FormsModule", while reactive forms are based on "ReactiveFormsModule".
+In a template-driven approach, most of the logic is driven from the template, whereas in reactive-driven approach, the logic resides mainly in the component or typescript code.
+
+------------------------------------------
+bootstrapping in angular
+https://www.pluralsight.com/guides/bootstrapping-an-application-in-angular
+
+The process of loading the index.html page, app-level module, and app-level component is called bootstrapping, or loading the app. 
+
+Angular takes the following steps to bootstrap the application:
+Load index.html
+Load Angular, Other Libraries, and App Code
+Execute main.ts File
+Load App-Level Module
+Load App-Level Component
+Process Template
+
+the first file called in angular 7
+https://www.javatpoint.com/angular-7-files-explanation#:~:text=html%3A%20This%20is%20the%20entry,container%20for%20the%20angular%20application.&text=main.,file%20that%20will%20first%20run.
+https://www.javatpoint.com/how-an-angular-app-get-loaded-and-started
+
+index.html: This is the entry file which holds the high level container for the angular application.
+main.ts: As defined in angular.json file, this is the main ts file that will first run.
+
+------------------------------------------
+------------------------------------------
+types of binding
+https://www.pluralsight.com/guides/one-and-two-way-data-binding-angular
+
+One-way and two-way data binding are two of the important ways by which we can exchange data from component to DOM and vice-versa. Data exchange between the component and the view will help us to build dynamic and interactive web applications.
+
+Two way data binding is the combination of:
+-property binding:
+ One-way Data Binding (From Component to View)
+-event binding
+ One-way Data Binding (From View to Component)
+
+Two-way data binding can be achieved using a ngModel directive.
+<input type="text" [(ngModel)] = 'val' />
+
+------------------------------------------
+ACL (Access Control List)
+https://jasonwatmore.com/post/2018/11/22/angular-7-role-based-authorization-tutorial-with-example
+Role Based Authorization
+
+------------------------------------------
+life cycle methods
+https://www.tutorialspoint.com/angular2/angular2_lifecycle_hooks.htm
+
+ngOnChanges − When the value of a data bound property changes, then this method is called.
+
+ngOnInit − This is called whenever the initialization of the directive/component after Angular first displays the data-bound properties happens.
+
+ngDoCheck − This is for the detection and to act on changes that Angular can't or won't detect on its own.
+
+ngAfterContentInit − This is called in response after Angular projects external content into the component's view.
+
+ngAfterContentChecked − This is called in response after Angular checks the content projected into the component.
+
+ngAfterViewInit − This is called in response after Angular initializes the component's views and child views.
+
+ngAfterViewChecked − This is called in response after Angular checks the component's views and child views.
+
+ngOnDestroy − This is the cleanup phase just before Angular destroys the directive/component.
+
+
+angular ngoninit vs constructor
+https://stackoverflow.com/questions/35763730/difference-between-constructor-and-ngoninit
+The Constructor is a default method of the class that is executed when the class is instantiated
+ngOnInit is a life cycle hook called by Angular to indicate that Angular is done creating the component.
+
+we use ngOnInit for all the initialization and avoid stuff to work in the constructor. The constructor should only be used to initialize class members but shouldn't do actual "work".
+
+------------------------------------------
+angular parent component vs child component
+https://medium.com/@saranipeiris17/understanding-parent-and-child-components-in-angular-communication-with-input-and-output-3260c6ee52d7
+
+In Angular, a parent component is a component that contains one or more child components within its template. The child component is the one that is nested inside the parent component.
+
+angular 7 share data between components
+https://levelup.gitconnected.com/5-ways-to-share-data-between-angular-components-d656a7eb7f96
+
+Parent to Child component: When you define @Input() in the child component it will receive value from the master or parent component.
+child.component.ts
+export class ChildComponent {
+  @Input() name!: string;
+}
+
+parent.component.html
+<app-child [name]="'John Doe'"></app-child>
+
+
+Child to Parent component: For sharing data from child to parent we need @output() decorator. In child component we have to define output
+child.component.ts
+export class ChildComponent {
+  @Output() messageEvent = new EventEmitter<string>();
+  sendMessage() {
+    this.messageEvent.emit('Hello from Child!');
+  }
+}
+
+parent.component.html
+<app-child (messageEvent)="receiveMessage($event)"></app-child>
+
+parent.component.ts
+export class ParentComponent {
+  message!: string;
+  receiveMessage($event: string) {
+    this.message = $event;
+  }
+}
+
+------------------------------------------
+------------------------------------------
+angular design patterns
+https://blog.bitsrc.io/design-patterns-in-typescript-e9f84de40449
+
+Design patterns are great problem solving templates that developers can apply to their projects.
+Singleton
+The singleton pattern is probably one of the most known design patterns out there. It is a creational pattern because it ensures that no matter how many times you try to instantiate a class, you’ll only have one instance available.
+
+------------------------------------------
+angular software architectural patterns
+https://netmedia.io/dev/angular-architecture-patterns-high-level-project-architecture_5589
+
+angular mvvm architecture
+https://medium.com/@maaouikimo/why-angular-is-your-best-choice-for-you-next-projects-9d754fb18f91#:~:text=Angular%20framework%20is%20embedded%20with,an%20MVVM%20software%20architectural%20setup.&text=Its%20framework%20uses%20the%20MVVM,binding%20between%20View%20and%20ViewModel.
+
+Its framework uses the MVVM(Model-View-View-Model) architecture better than an MVC (Model-View-Controller) one. The MVVM model supports two-way data binding between View and ViewModel.
+
+------------------------------------------
+What are Single Page Applications (SPA)?
+https://www.simplilearn.com/tutorials/angular-tutorial/angular-interview-questions
+
+Single-page applications are web applications that load once with new features just being mere additions to the user interface. It does not load new HTML pages to display the new page's content, instead generated dynamically.
+
+router in angular
+As users perform application tasks, they need to move between the different views that you have defined.
+To handle the navigation from one view to the next, you use the Angular Router.
+
+angular package.json vs package-lock.json
+https://www.geeksforgeeks.org/difference-between-package-json-and-package-lock-json-files/
+package.json file contains the list of dependencies and scripts in a project while the package.lock.json specifies their respective versions to ensure consistent installations in different environments.
+
+where to specify path for web url for angular app
+https://seangwright.medium.com/the-best-way-to-use-angulars-environment-files-a0c098551abc
+When you create a new Angular project using the CLI you are provided with an environments folder with (2) environment files, one for production and one for all other environments.
+
+------------------------------------------
+------------------------------------------

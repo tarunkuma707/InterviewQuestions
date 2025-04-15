@@ -1,0 +1,384 @@
+what is es6
+https://www.w3schools.com/js/js_es6.asp
+
+ES6, or ECMAScript 6, is the sixth version of the JavaScript programming language standard. It was released in 2015 and introduced many new features. 
+What are some of the new features of ES6?
+
+Classes:  
+Arrow functions:  
+Modules:  
+Let and const keywords:  
+Promises: 
+
+latest javascript version
+https://www.w3schools.com/js/js_2024.asp
+
+latest ecmascript version
+ECMAScript 2024 or ES2024
+
+What does ECMA JS stand for?
+European Computer Manufacturer's Association
+
+----------------------------------------------------------------------
+jquery latest version: 3.7.1
+
+jquery functions
+https://www.w3schools.com/jquery/jquery_events.asp
+
+jQuery() — which can also be written as $()
+https://api.jquery.com/jquery/
+
+name 10 jquery functions
+https://www.c-sharpcorner.com/article/top-10-functions-in-jquery/
+
+---------------------------------------------
+---------------------------------------------
+data types
+https://www.w3schools.com/js/js_datatypes.asp
+
+JavaScript has 8 Datatypes
+1. String
+2. Number
+3. Bigint
+4. Boolean
+5. Undefined
+6. Function
+7. Symbol
+8. Object
+
+The Object Datatype
+The object data type can contain:
+
+1. An object
+2. An array
+3. A date
+4. null
+
+js null vs undefined
+https://www.tutorialspoint.com/What-is-the-difference-between-null-and-undefined-in-JavaScript#:~:text=In%20JavaScript%2C%20undefined%20is%20a%20type%2C%20whereas%20null%20an%20object.&text=It%20means%20a%20variable%20declared,has%20been%20assigned%20a%20value.&text=Whereas%2C%20null%20in%20JavaScript%20is%20an%20assignment%20value.
+
+In JavaScript, undefined is a type, whereas null an object.
+
+undefined
+It means a variable declared, but no value has been assigned a value.
+
+For example,
+
+var demo;
+alert(demo); //shows undefined
+alert(typeof demo); //shows undefined
+
+null
+Whereas, null in JavaScript is an assignment value. You can assign it to a variable.
+
+For example,
+
+var demo = null;
+alert(demo); //shows null
+alert(typeof demo); //shows object
+
+
+typeof "John"                 // Returns "string"
+typeof 3.14                   // Returns "number"
+typeof NaN                    // Returns "number"
+typeof false                  // Returns "boolean"
+typeof [1,2,3,4]              // Returns "object"
+typeof {name:'John', age:34}  // Returns "object"
+typeof new Date()             // Returns "object"
+typeof function () {}         // Returns "function"
+typeof myCar                  // Returns "undefined"
+typeof null                   // Returns "object"
+
+NaN
+In JavaScript, NaN is short for "Not-a-Number".
+In JavaScript, NaN is a number that is not a legal number.
+The Number.isNaN() method returns true if the value is NaN, and the type is a Number.
+
+js not defined vs undefined
+"undefined" and "not defined" are two different values in JavaScript. "undefined" indicates that a variable has been declared but not given a value, while "not defined" indicates that a variable does not exist
+
+js null vs empty
+https://code-boxx.com/javascript-null-vs-undefined-vs-empty/
+
+null is used to explicitly define “nothing”. For example, var foo = null;
+undefined happens when we don’t assign a value to a variable. For example, var foo;
+empty is an explicit way to define an empty string. For example, var foo = "";
+
+js 2 - '2'
+https://stackoverflow.com/questions/48675882/how-is-22-2-20-in-javascript
+- is only subtraction. No matter what its arguments are, they are coerced to numbers. Thus, '22' - '2' is evaluated as 22 - 2, which is 20.
+
+var x = 16 + 4 + "Volvo";
+20Volvo
+
+var x = "Volvo" + 16 + 4;
+Volvo164
+
+-------------------------------------------------------
+operators
+https://www.w3schools.com/js/js_operators.asp
+
+Arithmetic Operators
+Assignment Operators
+Comparison Operators
+Logical Operators
+Conditional Operators
+Type Operators
+
+js typeof vs instanceof
+https://stackoverflow.com/questions/899574/what-is-the-difference-between-typeof-and-instanceof-and-when-should-one-be-used
+Use instanceof for custom types:
+Use typeof for simple built in types:
+
+--------------------------------------
+--------------------------------------
+var vs let vs const
+https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
+
+They are all hoisted to the top of their scope. But while var variables are initialized with undefined, let and const variables are not initialized.
+While var and let can be declared without being initialized, const must be initialized during declaration.
+
+var
+globally scoped or function/locally scoped.
+var variables can be re-declared and updated within its scope
+var variables are hoisted to the top of their scope and initialized with a value of undefined.
+
+let
+let is block scoped
+let can be updated but not re-declared within its scope
+Just like  var, let declarations are hoisted to the top. Unlike var which is initialized as undefined, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
+
+const
+const declarations are block scoped
+const cannot be updated or re-declared. Every const declaration, therefore, must be initialized at the time of declaration. While a const object cannot be updated/reassign, the properties of this objects can be updated. 
+Just like let, const declarations are hoisted to the top but are not initialized.
+
+Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+
+javaScript hoisting
+https://www.w3schools.com/js/js_hoisting.asp
+Hoisting is JavaScript's default behavior of moving declarations to the top.
+
+js const array
+https://www.w3schools.com/js/js_array_const.asp
+
+An array declared with const cannot be reassigned
+const cars = ["Saab", "Volvo", "BMW"];
+cars = ["Toyota", "Volvo", "Audi"];    // ERROR
+
+Elements Can be Reassigned
+You can change the elements of a constant array:
+// You can create a constant array:
+const cars = ["Saab", "Volvo", "BMW"];
+// You can change an element:
+cars[0] = "Toyota";
+// You can add an element:
+cars.push("Audi");
+
+------------------------------------------------
+strict
+https://www.w3schools.com/js/js_strict.asp
+
+"use strict"; Defines that JavaScript code should be executed in "strict mode".
+With strict mode, you can not, for example, use undeclared variables.
+
+"use strict";
+x = 3.14;       // This will cause an error because x is not declared
+
+
+js object
+https://www.w3schools.com/js/js_object_definition.asp
+
+js array
+https://www.w3schools.com/js/js_arrays.asp
+
+Js arrays are objects.
+
+js const array
+https://www.w3schools.com/js/js_const.asp
+
+-------------------------------------------------
+attribute vs property 
+https://arunrajeevan.medium.com/difference-between-attribute-and-property-in-html-world-70de9b7fb25c#:~:text=Attributes%20are%20defined%20by%20HTML,attributes%20on%20your%20HTML%20elements.
+
+Attributes are defined by HTML. Properties are accessed from DOM (Document Object Model) nodes.
+While writing HTML code, you can define attributes on your HTML elements. Then, once the browser parses your code, a corresponding DOM node will be created. This node is an object, and therefore it has properties.
+
+<input type="text" value="Name:">
+There are 2 attributes, type and value.Also it has 2 properties,type and value.
+
+-------------------------------------------------
+parse in javascript
+https://developer.mozilla.org/en-US/docs/Glossary/Parse
+
+Parsing means converting a program into an format that a runtime environment can actually run, for example the JavaScript engine inside browsers.
+The browser parses HTML into a DOM tree.
+
+dom
+https://www.w3schools.com/js/js_htmldom.asp
+
+When a web page is loaded, the browser creates a Document Object Model of the page.
+The HTML DOM model is constructed as a tree of Objects:
+
+
+node
+https://stackoverflow.com/questions/24974621/what-is-a-node-in-javascript#:~:text=A%20%22node%22%2C%20in%20this,document%22%20and%20%22element%22.
+
+A "node", in this context, is simply an HTML element. The "DOM" is a tree structure that represents the HTML of the website, and every HTML element is a "node".
+
+dom vs node
+https://stackoverflow.com/questions/9979172/difference-between-node-object-and-element-object#:~:text=So%2C%20in%20a%20nutshell%2C%20a,and%20a%20nextSibling%20and%20previousSibling.
+
+*******************************************
+function vs expression
+https://medium.com/@mandeep1012/function-declarations-vs-function-expressions-b43646042052#:~:text=Function%20Expression%20VS.&text=Function%20declarations%20load%20before%20any,reaches%20that%20line%20of%20code.&text=Function%20expressions%20aren't%20hoisted,scope%20where%20they%20were%20defined.
+
+A JavaScript function can also be defined using an expression.
+A function expression can be stored in a variable:
+var x = function (a, b) {return a * b};
+
+After a function expression has been stored in a variable, the variable can be used as a function. Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
+
+Similar to the var statement, function declarations are hoisted to the top of other code. Function expressions aren’t hoisted
+*******************************************
+
+*******************************************
+What do you mean by Self Invoking Functions?
+https://www.interviewbit.com/javascript-interview-questions/
+https://www.w3schools.com/js/js_function_definition.asp
+
+Without being requested, a self-invoking expression is automatically invoked (initiated). If a function expression is followed by (), it will execute automatically. A function declaration cannot be invoked by itself.
+
+(function () {
+  let x = "Hello!!";  // I will invoke myself
+})();
+*******************************************
+
+*******************************************
+what is closure in javascript
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+A closure is the combination of a functions bundled together (enclosed). In other words, a closure gives you access to an outer function's scope from an inner function.
+
+function init() {
+  var name = "Mozilla"; // name is a local variable created by init
+  function displayName() {
+    // displayName() is the inner function, that forms the closure
+    console.log(name); // use variable declared in the parent function
+  }
+  displayName();
+}
+init();
+*******************************************
+
+*******************************************
+Explain what a callback function is ?
+https://protechstack.com/interview/javascript-interview-questions?gclid=CjwKCAiAuOieBhAIEiwAgjCvcpiTSg9BJBZzKdHYleB_DDxcMzU1tiVNiIO52hLvEa84agjypPQO5BoC3ssQAvD_BwE
+
+A callback function is a function that is passed to another function as an argument and is executed after some operation has been completed.
+
+function modifyArray(arr, callback) {
+  // do something to arr here
+  arr.push(100);
+  // then execute the callback function that was passed
+  callback();
+}
+
+var arr = [1, 2, 3, 4, 5];
+
+modifyArray(arr, function() {
+  console.log("array has been modified", arr);
+});
+*******************************************
+
+*******************************************
+What advantages are using arrow functions?
+https://protechstack.com/interview/javascript-interview-questions?gclid=CjwKCAiAuOieBhAIEiwAgjCvcpiTSg9BJBZzKdHYleB_DDxcMzU1tiVNiIO52hLvEa84agjypPQO5BoC3ssQAvD_BwE
+
+Scope safety: Until arrow functions, every new function defined its own value. An arrow function does not create its own this, the this value of the enclosing execution context is used.
+Compactness: Arrow functions are easier to read and write.
+
+arrow functions
+https://www.w3schools.com/js/js_arrow_function.asp
+hello = () => {
+  return "Hello World!";
+}
+
+In regular functions the this keyword represented the object that called the function.
+With arrow functions the this keyword always represents the object that defined the arrow function.
+*******************************************
+
+session storage vs local storage
+https://www.w3schools.com/html/html5_webstorage.asp
+https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+
+The localStorage object stores the data with no expiration date. The data will not be deleted when the browser is closed, and will be available the next day, week, or year.
+
+The sessionStorage object is equal to the localStorage object, except that it stores the data for only one session. The data is deleted when the user closes the specific browser tab. Data is not deleted if we refresh the tab.
+
+---------------------------------------------
+“debugger” in javascript?
+https://www.w3schools.com/js/js_debugging.asp#:~:text=The%20debugger%20keyword%20stops%20the,debugger%20statement%20has%20no%20effect.
+
+The debugger keyword stops the execution of JavaScript, and calls (if available) the debugging function.
+
+---------------------------------------------
+Types of errors in javascript
+https://study.com/academy/lesson/errors-in-javascript-types-methods-prevention.html#:~:text=There%20are%20three%20main%20types,runtime%20errors%2C%20and%20logical%20errors.
+
+There are three main types of errors that can occur while compiling a JavaScript program: syntax errors, runtime errors, and logical errors.
+
+The most common type of errors are syntax errors, in which something incorrect in the syntax of the program body raises this error.
+
+Runtime errors occur during the runtime of the program after it's interpreted by the compiler.
+
+Logical errors are the most difficult to find as they are when the syntax is correct but the logic is not.
+
+---------------------------------------------
+javascript 5 array methods
+https://www.w3schools.com/js/js_array_methods.asp
+
+toString()
+join()
+pop()
+push()
+shift()
+unshift()
+filter()
+map()
+foreach()
+
+JavaScript Array length
+The length property
+
+---------------------------------------------
+map function in javascript
+https://www.w3schools.com/jsref/jsref_map.asp
+
+map() creates a new array from calling a function for every array element.
+map() calls a function once for each element in an array.
+map() does not execute the function for empty elements.
+map() does not change the original array.
+
+const numbers = [65, 44, 12, 4];
+const newArr = numbers.map(myFunction)
+
+function myFunction(num) {
+  return num * 10;
+}
+
+
+filter function in javascript>
+https://www.w3schools.com/jsref/jsref_filter.asp
+
+The filter() method creates a new array filled with elements that pass a test provided by a function.
+The filter() method does not execute the function for empty elements.
+The filter() method does not change the original array.
+
+const ages = [32, 33, 16, 40];
+const result = ages.filter(checkAdult);
+
+function checkAdult(age) {
+  return age >= 18;
+}
+
+---------------------------------------------

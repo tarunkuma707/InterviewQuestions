@@ -1,0 +1,236 @@
+mvc:
+
+software architectural patterns
+https://nix-united.com/blog/10-common-software-architectural-patterns-part-1/
+
+php mvc vs hmvc
+https://blog.webprojectbuilder.com/differences-mvc-hmvc/#:~:text=While%20MVC%20has%20only%20one,the%20enhancement%20of%20the%20application.
+https://stackoverflow.com/questions/5454337/mvc-vs-hmvc-for-web-application-development
+
+laravel hmvc
+https://stackoverflow.com/questions/30736545/how-to-make-hmvc-in-laravel-5
+
+------------
+
+software design patterns
+https://www.educative.io/blog/the-7-most-important-software-design-patterns?aid=5082902844932096&utm_source=google&utm_medium=cpc&utm_campaign=blog-dynamic&utm_term=&utm_campaign=Dynamic+-+Blog&utm_source=adwords&utm_medium=ppc&hsa_acc=5451446008&hsa_cam=8090938743&hsa_grp=82569843726&hsa_ad=396819070286&hsa_src=g&hsa_tgt=aud-597782228586:dsa-837938538428&hsa_kw=&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjw5auGBhDEARIsAFyNm9FgKwtBrDvvuyJeNboW2djAnRyhSqdwkZaPLAJim9tObwMXwf1jplsaAq9ZEALw_wcB
+
+repository
+laravel design pattern
+https://shishirthedev.medium.com/repository-design-pattern-in-laravel-application-f474798f53ec
+https://dev.to/ahmedash95/design-patterns-in-php-decorator-with-laravel-5hk6
+
+laravel singleton design pattern
+https://dev.to/aschmelyun/how-to-use-laravel-s-bind-and-singleton-methods-3e58#:~:text=The%20singleton%20pattern%20is%20used,only%20return%20the%20instantiated%20object.
+http://snags88.github.io/singleton-pattern-in-laravel
+
+The singleton pattern is used to restrict the instantiation of a class to a single object, which can be useful when only one object is required across the system. … The first call will instantiate the object while any subsequent will only return the instantiated object.
+
+laravel factory design pattern
+https://stackoverflow.com/questions/27349154/using-the-factory-pattern-in-php-and-laravel#:~:text=This%20pattern%20is%20used%20to,that%20uses%20the%20built%20object.
+http://snags88.github.io/factory-pattern-in-laravel
+https://laravel-taiwan.github.io/php-the-right-way/pages/Design-Patterns.html
+
+Most Important Software Design Patterns
+https://medium.com/educative/the-7-most-important-software-design-patterns-d60e546afb0e
+
+------------
+unit testing
+https://laravel.com/docs/8.x/testing
+
+different types of software testing
+https://hackr.io/blog/types-of-software-testing
+
+sdlc
+https://www.tutorialspoint.com/sdlc/sdlc_overview.htm
+
+---------------------------------------------------
+web services
+https://www.guru99.com/web-service-architecture.html
+https://www.guru99.com/web-service-architecture.html#7
+
+rest web services
+soap web services
+rest vs soap web services
+https://www.javatpoint.com/soap-vs-rest-web-services
+
+jwt token(JSON Web Token)
+bearer token
+jwt vs bearer token
+https://stackoverflow.com/questions/40375508/whats-the-difference-between-jwts-and-bearer-token#:~:text=3%20Answers&text=JWT%20is%20an%20encoding%20standard,can%20be%20signed%20and%20encrypted.&text=Bearer%20tokens%20can%20be%20included,one)%20being%20the%20Authorization%20header.
+
+laravel how to authenticate bearer token
+https://laravel.com/docs/5.8/api-authentication#:~:text=By%20default%2C%20Laravel%20ships%20with,and%20utilizes%20a%20token%20driver.
+https://laravel.com/docs/5.8/passport
+
+lumen jwt tymon
+https://jwt-auth.readthedocs.io/en/develop/lumen-installation/
+https://dev.to/ndiecodes/build-a-jwt-authenticated-api-with-lumen-2afm
+
+------------
+different http requests
+
+difference b/w put and patch
+https://laracasts.com/discuss/channels/general-discussion/whats-the-differences-between-put-and-patch?page=1
+
+post vs put vs patch
+https://www.mscharhag.com/api-design/http-post-put-patch#:~:text=When%20building%20RESTful%20Web%2DServices,is%20used%20for%20resource%20updates.&text=PUT%20requests%20create%20or%20replace,at%20the%20client%20defined%20URI
+
+cors
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+https://stackoverflow.com/questions/8719276/cross-origin-request-headerscors-with-php-headers
+
+what is cors
+https://portswigger.net/web-security/cors
+
+------------
+laravel versions: 5,8
+
+difference between laravel 5 and 8
+https://auth0.com/blog/whats-new-in-laravel-8/
+
+events
+https://laravel.com/docs/8.x/events
+
+reverse routing
+http://www.laravelinterviewquestions.com/trick/what-is-reverse-routing-in-laravel-ntc/#:~:text=In%20Laravel%20reverse%20routing%20is,request's%20URI%20is%20'login'.
+
+Route::get('login', 'users@login');
+{{ HTML::link_to_action('users@login') }}
+
+laravel lifecycle
+https://laravel.com/docs/8.x/lifecycle
+
+rest controllers
+https://laravel.com/docs/8.x/controllers
+
+eloquent relationships
+
+orm eloquent
+db(query builder) vs eloquent
+https://cubettech.com/resources/blog/laravels-query-builder-and-eloquent-orm/
+
+laravel observer
+https://laravel.com/docs/8.x/eloquent#observers
+
+laravel roles and permissions
+https://www.itsolutionstuff.com/post/laravel-8-user-roles-and-permissions-tutorialexample.html
+
+acl(Access Control List)
+https://github.com/kodeine/laravel-acl
+https://medium.com/@hujjatnazari/the-easiest-way-to-create-acl-for-laravel-projects-1bafe371e7e1
+
+queues
+https://www.zealousweb.com/3-easy-steps-to-implement-laravel-queue/
+
+
+service container vs service providers
+https://stackoverflow.com/questions/54018582/laravel-5-7-service-container-and-service-provider#:~:text=Service%20container%20is%20where%20your,adding%20them%20to%20the%20container.
+https://laracasts.com/discuss/channels/laravel/the-service-container-and-service-providers-explained
+
+service container
+https://laravel.com/docs/8.x/container
+
+service providers
+https://laravel.com/docs/8.x/providers
+
+Dependency injection
+https://laravel.com/docs/8.x/container#:~:text=PSR%2D11-,Introduction,cases%2C%20%22setter%22%20methods.
+
+laravel setter getter>
+
+laravel bootstraping>
+https://laravel.com/docs/8.x/providers
+
+
+migrations
+https://laravel.com/docs/8.x/migrations
+
+seeds
+
+middlewares
+https://laravel.com/docs/8.x/middleware
+
+guards
+https://blog.trigent.com/multiple-authentication-system-using-guards-in-laravel/#:~:text=A%20guard%20is%20a%20way,used%20to%20identify%20authenticated%20users.&text=The%20session%20guard%20maintains%20the,valid%20token%20in%20every%20request.
+https://laravel.com/docs/7.x/authentication
+
+auth
+https://laravel.com/docs/7.x/authentication
+https://www.tutorialspoint.com/laravel/laravel_authentication.htm
+
+csrf token (cross-site request forgery)
+https://laravel.com/docs/8.x/csrf
+Laravel automatically generates a CSRF "token" for each active user session managed by the application. This token is used to verify that the authenticated user is the person actually making the requests to the application. Since this token is stored in the user's session and changes each time the session is regenerated, a malicious application is unable to access it.
+
+can we pass csrf token from postman
+https://stackoverflow.com/questions/30756682/laravel-x-csrf-token-mismatch-with-postman
+
+form request class validation
+https://laravel.com/docs/8.x/validation
+
+socialite, passport
+larvel packages
+https://laravel.com/docs/8.x/packages
+https://www.cloudways.com/blog/best-laravel-packages/
+
+how to use multiple databases
+https://stackoverflow.com/questions/31847054/how-to-use-multiple-databases-in-laravel
+
+facade
+https://laravel.com/docs/8.x/facades
+Facades provide a "static" interface to classes that are available in the application's service container.
+
+--------------
+composer:
+Dependency Manager for PHP
+
+composer create-project laravel/laravel example-app
+
+laravel composer update vs install>
+https://stackoverflow.com/questions/33052195/what-are-the-differences-between-composer-update-and-composer-install
+
+composer update : composer.json
+composer install : composer.lock
+
+composer self update>
+https://stackoverflow.com/questions/24816364/composer-auto-self-update
+composer self-update
+
+composer dump-autoload
+https://stackoverflow.com/questions/33973967/why-do-i-have-to-run-composer-dump-autoload-command-to-make-migrations-work-in
+
+the dump-autoload command which won't download anything new, but looks for all of the classes it needs to include again.It just regenerates the list of all classes that need to be included in the project
+
+composer require laravel/passport
+
+default laravel port(8000)
+https://stackoverflow.com/questions/17990820/set-port-for-php-artisan-php-serve
+
+-----------------------
+artisan
+Artisan is the command line interface included with Laravel.
+
+php artisan serve
+php artisan make:controller PhotoController
+php artisan event:generate
+
+php artisan make:model Flight
+php artisan make:migration create_flights_table
+
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:rollback --step=5
+php artisan migrate:refresh
+
+php artisan queue:table
+php artisan make:job MatchSendEmail
+php artisan queue:work
+
+php artisan make:middleware EnsureTokenIsValid
+
+php artisan make:auth
+
+php artisan make:request StorePostRequest
+
+-----------------------

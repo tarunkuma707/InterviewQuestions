@@ -1,0 +1,459 @@
+mysql versions:5,8
+
+sql
+https://www.w3schools.com/sql/sql_intro.asp
+SQL stands for Structured Query Language
+SQL lets you access and manipulate databases
+
+relational vs non relational database
+https://www.pluralsight.com/blog/software-development/relational-vs-non-relational-databases
+
+Relational databases
+A relational database, also called Relational Database Management System (RDBMS) or SQL database, stores data in tables and rows also referred to as records.
+
+A relational database works by linking information from multiple tables through the use of “keys.” A key is a unique identifier which can be assigned to a row of data contained within a table. This unique identifier, called a “primary key,” can then be included in a record located in another table when that record has a relationship to the primary record in the main table. When this unique primary key is added to a record in another table, it is called a “foreign key” in the associated table. The connection between the primary and foreign key then creates the “relationship” between records contained across multiple tables.
+
+Non-relational databases
+The non-relational database, or NoSQL database, stores data. However, unlike the relational database, there are no tables, rows, primary keys or foreign keys.
+It uses json format to store data.
+
+MongoDB is a NoSQL database used to store large amounts of data without any traditional relational database table. Instead of rows & columns, MongoDB used collections & documents to store data. A collections consist of a set of documents & a document consists of key-value pairs which are the basic unit of data in MongoDB.
+
+-----------------------------------------------
+sql injection
+https://www.w3schools.com/sql/sql_injection.asp
+SQL injection is one of the most common web hacking techniques.
+SQL injection usually occurs when you ask a user for input, like their username/userid, and instead of a name/id, the user gives you an SQL statement that you will unknowingly run on your database.
+
+Look at the following example:
+SELECT * FROM Users WHERE UserId = 105 OR 1=1;
+
+The SQL above is valid and will return ALL rows from the "Users" table, since OR 1=1 is always TRUE.
+A hacker might get access to all the user names and passwords in a database, by simply inserting 105 OR 1=1 into the input field.
+
+
+prepared statement
+https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+
+Prepared Statements and Bound Parameters:
+A prepared statement is a feature used to execute the same (or similar) SQL statements repeatedly with high efficiency.
+
+Prepared statements basically work like this:
+1. Prepare: An SQL statement template is created and sent to the database. Certain values are left unspecified, called parameters (labeled "?"). Example: INSERT INTO MyGuests VALUES(?, ?, ?)
+2. The database parses, compiles, and performs query optimization on the SQL statement template, and stores the result without executing it
+3. Execute: At a later time, the application binds the values to the parameters, and the database executes the statement. The application may execute the statement as many times as it wants with different values
+
+Compared to executing SQL statements directly, prepared statements have three main advantages:
+1. Prepared statements reduce parsing time as the preparation on the query is done only once (although the statement is executed multiple times)
+2. Bound parameters minimize bandwidth to the server as you need send only the parameters each time, and not the whole query
+3. Prepared statements are very useful against SQL injections
+
+Prepared Statements in MySQLi
+The following example uses prepared statements and bound parameters in MySQLi:
+
+// prepare and bind
+$stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $firstname, $lastname, $email);
+
+// set parameters and execute
+$firstname = "John";
+$lastname = "Doe";
+$email = "john@example.com";
+$stmt->execute();
+
+$firstname = "Mary";
+$lastname = "Moe";
+$email = "mary@example.com";
+$stmt->execute();
+
+-----------------------------------------------
+sql joins
+https://www.w3schools.com/sql/sql_join.asp
+
+order by
+https://www.w3schools.com/sql/sql_orderby.asp
+
+
+SQL NULL Values
+https://www.w3schools.com/sql/sql_null_values.asp
+
+What is a NULL Value?
+A field with a NULL value is a field with no value.
+If a field in a table is optional, it is possible to insert a new record or update a record without adding a value to this field. Then, the field will be saved with a NULL value.
+
+Note: A NULL value is different from a zero value or a field that contains spaces. A field with a NULL value is one that has been left blank during record creation!
+
+How to Test for NULL Values?
+It is not possible to test for NULL values with comparison operators, such as =, <, or <>.
+We will have to use the IS NULL and IS NOT NULL operators instead.
+
+
+LIMIT
+https://www.w3schools.com/sql/sql_top.asp
+MySQL supports the LIMIT clause to select a limited number of records
+
+
+SQL Wildcards
+https://www.w3schools.com/sql/sql_wildcards.asp
+
+SQL Wildcard Characters
+A wildcard character is used to substitute one or more characters in a string.
+Wildcard characters are used with the LIKE operator. The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+Example
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a%';
+
+Wildcard Characters
+Symbol  Description
+%       Represents zero or more characters
+
+
+SQL IN Operator
+https://www.w3schools.com/sql/sql_in.asp
+
+The SQL IN Operator
+The IN operator allows you to specify multiple values in a WHERE clause.
+The IN operator is a shorthand for multiple OR conditions.
+
+Example
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+
+
+SQL BETWEEN Operator
+https://www.w3schools.com/sql/sql_between.asp
+
+The SQL BETWEEN Operator
+The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+
+Example
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+
+
+SQL UNION Operator
+https://www.w3schools.com/sql/sql_union.asp
+
+The SQL UNION Operator
+The UNION operator is used to combine the result-set of two or more SELECT statements.
+
+Every SELECT statement within UNION must have the same number of columns
+The columns must also have similar data types
+The columns in every SELECT statement must also be in the same order
+
+UNION Syntax:
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+
+UNION ALL Syntax
+The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL:
+
+SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2;
+
+-----------------------------------------------
+aggregate functions
+https://www.w3schools.com/sql/sql_aggregate_functions.asp
+
+An aggregate function is a function that performs a calculation on a set of values, and returns a single value.
+Aggregate functions are often used with the GROUP BY clause of the SELECT statement. The GROUP BY clause splits the result-set into groups of values and the aggregate function can be used to return a single value for each group.
+
+The most commonly used SQL aggregate functions are:
+MIN() - returns the smallest value within the selected column
+MAX() - returns the largest value within the selected column
+COUNT() - returns the number of rows in a set
+SUM() - returns the total sum of a numerical column
+AVG() - returns the average value of a numerical column
+
+Aggregate functions ignore null values (except for COUNT()).
+
+
+mysql count
+https://www.w3schools.com/sql/sql_count.asp
+
+Use COUNT() with GROUP BY
+Here we use the COUNT() function and the GROUP BY clause, to return the number of records for each category in the Products table:
+
+Example
+SELECT COUNT(*) AS [Number of records], CategoryID
+FROM Products
+GROUP BY CategoryID;
+
+Output:
+Number of records   CategoryID
+12                  1 
+12                  2 
+13                  3 
+
+
+SQL GROUP BY Statement
+https://www.w3schools.com/sql/sql_groupby.asp
+
+The GROUP BY statement groups rows that have the same values, like "find the number of customers in each country".
+The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result-set by one or more columns.
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;
+
+
+SQL HAVING Clause
+https://www.w3schools.com/sql/sql_having.asp
+The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5
+ORDER BY COUNT(CustomerID) DESC;
+
+
+multiple group by example
+https://stackoverflow.com/questions/2421388/using-group-by-on-multiple-columns
+
+select Subject, Semester, Count(*)
+from Subject_Selection
+group by Subject, Semester
+
+-----------------------------------------------
+mysql select second hightest salary from table
+https://stackoverflow.com/questions/21520038/find-max-and-second-max-salary-for-a-employee-table-mysql/21520159
+select 
+ DISTINCT(salary) 
+from employee 
+ order by salary desc 
+limit 1,1
+
+https://www.geeksforgeeks.org/sql-query-to-find-second-largest-salary/
+SELECT name, MAX(salary) AS salary
+FROM employee
+WHERE salary < (SELECT MAX(salary)
+             FROM employee);
+
+In mysql having should be used instead of where in above query.
+
+
+limit and offset in mysql
+https://stackoverflow.com/questions/10119291/which-rows-are-returned-when-using-limit-with-offset-in-mysql
+SELECT column 
+FROM table
+LIMIT 18 OFFSET 8
+
+It will return 18 results starting on record #9 and finishing on record #26.
+
+
+mysql truncate table
+https://www.w3schools.com/sql/sql_ref_drop_table.asp
+TRUNCATE TABLE Categories;
+
+mysql drop
+DROP TABLE Shippers;
+DROP DATABASE testDB;
+
+-----------------------------------------------
+constraints
+https://www.w3schools.com/sql/sql_constraints.asp
+
+SQL UNIQUE Constraint
+https://www.w3schools.com/sql/sql_unique.asp
+
+
+indexes
+https://www.w3schools.com/sql/sql_create_index.asp
+https://www.tutorialspoint.com/mysql/mysql-indexes.htm
+
+The CREATE INDEX statement is used to create indexes in tables.
+Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.
+
+Note: Updating a table with indexes takes more time than updating a table without (because the indexes also need an update). So, only create indexes on columns that will be frequently searched against.
+
+CREATE INDEX Syntax
+Creates an index on a table. Duplicate values are allowed:
+CREATE INDEX index_name
+ON table_name (column1, column2, ...);
+
+CREATE UNIQUE INDEX Syntax
+Creates a unique index on a table. Duplicate values are not allowed:
+CREATE UNIQUE INDEX index_name
+ON table_name (column1, column2, ...);
+
+
+view
+https://www.w3schools.com/sql/sql_view.asp
+
+In SQL, a view is a virtual table based on the result-set of an SQL statement.
+A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+You can present the data as if the data were coming from one single table.
+
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+https://www.geeksforgeeks.org/mysql-view/
+What are Views in MySQL?
+Views in MySQL are indeed "virtual tables" that are used to view data from one or more tables. Views do not have their data but rather store data virtually, consisting of rows and columns. Views are very helpful in restricting access to your application's critical data to third-party users. Views in MySQL can be created by selecting some/all columns and some/all rows of a table by filtering out the rows based on some condition(s).
+
+What is the Benefit of Using Views in MySQL?
+Views help particularly in the following ways:
+
+Simplicity: Instead of writing complex joins & queries, views provide a way of writing simple SELECT statements.
+Enhanced Security: Views expose only the data to the third-party apps and hide the internal details like table structure, attributes, etc, thus adding extra security.
+
+Just like the normal tables, you can perform operations like create, update, drop, etc., on the views.
+
+mysql difference between index and view
+https://stackoverflow.com/questions/24197856/what-is-difference-between-index-and-view-in-mysql
+
+-----------------------------------------------
+procedures
+https://www.w3schools.com/sql/sql_stored_procedures.asp
+
+A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+
+
+triggers
+https://www.mysqltutorial.org/mysql-triggers.aspx/
+
+In MySQL, a trigger is a stored program invoked automatically in response to an event such as insert, update, or delete that occurs in the associated table. For example, you can define a trigger that is invoked automatically before a new row is inserted into a table.
+MySQL supports triggers that are invoked in response to the INSERT, UPDATE or DELETE event.
+
+-----------------------------------------------
+storage engines
+https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html#:~:text=Storage%20engines%20are%20MySQL%20components,except%20for%20specialized%20use%20cases.
+Storage engines are MySQL components that handle the SQL operations for different table types. InnoDB is the default and most general-purpose storage engine, and Oracle recommends using it for tables except for specialized use cases.
+
+innodb
+https://dev.mysql.com/doc/refman/5.6/en/innodb-introduction.html#:~:text=InnoDB%20is%20a%20general%2Dpurpose,clause%20creates%20an%20InnoDB%20table.
+
+mysql different types of storage engines
+https://zetcode.com/mysql/storageengines/
+
+InnoDB: the default storage engine.It supports row-level locking. It is the only engine which provides foreign key referential integrity constraint.
+MyISAM: provides table-level locking.
+CSV: stores data in CSV files.
+
+cascading in mysql
+https://www.tpointtech.com/mysql-on-delete-cascade
+
+-----------------------------------------------
+-----------------------------------------------
+mysql data types
+https://www.w3schools.com/sql/sql_datatypes.asp
+
+mysql difference between char and varchar
+https://tableplus.com/blog/2018/08/mysql-char-vs-varchar-what-is-the-difference.html#:~:text=CHAR%20is%20fixed%20length%20while,characters%20in%20length%2C%20including%20spaces.&text=They%20also%20differ%20in%20maximum,a%20VARCHAR%20value%20is%2065%2C535.
+
+CHAR is fixed length while VARCHAR is variable length. That means, a CHAR(x) string has exactly x characters in length, including spaces. A VARCHAR(x) string can have up to x characters and it cuts off trailing spaces, thus might be shorter than the declared length.
+
+In terms of efficiency, if you are storing strings with a wildly variable length then use a VARCHAR, if the length is always the same, then use a CHAR as it is slightly faster.
+
+They also differ in maximum length where the length of a CHAR value can be any value from 0 to 255 and the maximum length of a VARCHAR value is 65,535.
+
+-----------------------------------------------
+mysql difference between decimal, float and double
+https://www.geeksforgeeks.org/decimal-vs-double-vs-float-in-mysql/
+
+Decimal vs Double vs Float in MySQL
+In MySQL, Decimal, Double, and Float are numeric data types used to represent different precision levels for numerical values. Decimal offers precise numeric storage with fixed-point arithmetic.
+Double and Float are approximate numeric types, where Double provides higher precision than Float.
+
+Decimal In MySQL
+Decimal datatype is used to store the fixed precision datatypes which have the exact values.
+Decimal datatypes are used where fixed precision is required such as storing quantities, percentages, and prices.
+Example
+percentage DECIMAL(5, 2)
+Here we declared the decimal where (5,2) represents the (number of total digits, digits after decimals). So here we assume the percentage is out of 100 so the total digits will be 5 and 2 digits are allowed after decimal.
+
+FLOAT in MySQL
+Float is also a floating data type that is used to store the approximate values.
+Float uses the 4 bytes i.e. 32 bits to store the values. So it has a wide range of values. But it is not always precise.
+Float provides the precision up to the 8 decimal points.
+
+what is the difference between decimal data type and float data type?
+In Float data types values have a wide range which gives more precision than the Decimal.
+
+Double in MySQL
+Double is used for the floating-point data type which stores the approximate numeric values.
+Double uses the 8 bytes i.e. 64 bits to store the values. So it has a wide range of values. Double is more precise than the Float.
+Double provides the precision up to the 15 decimal points.
+
+what is the difference between float data type and double?
+In Double data types values have a wide range as values are more precise than that of float data type.
+
+Data Type       Precision                     Storage Size
+Decimal         Exact/ Fixed/ Precised        Variable
+Float           Approximate/ Not precised     Fixed(4 bytes)
+Double          Approximate/ Not precised     Fixed(8 bytes)
+
+------------------------------------------------
+mysql different data types on primary key and foreign key
+https://stackoverflow.com/questions/32267778/setting-up-foreign-key-with-different-datatype#:~:text=Actually%20it%20does%20make%20sense,%2C%20double%2C%20string%2C%20etc.&text=Since%20the%20foreign%20key%20is,specify%20the%20foreign%20key's%20datatype.
+
+Since the foreign key is pointing to another table's primary key, this is why you need to specify the foreign key's datatype. And it obviously needs to be the same datatype.
+they do allow compatible types (INT and BIG INT, Float or DECIMAL and DOUBLE) 
+However, SQL norms do specify that both datatypes must be the same. If datatype is character, they must have the same length, otherwise, if it is integer, they must have the same size and must both be signed or both unsigned.
+
+------------------------------------------------
+mysql set data type
+https://dev.mysql.com/doc/refman/8.0/en/set.html
+
+A SET is a string object that can have zero or more values, each of which must be chosen from a list of permitted values specified when the table is created. SET column values that consist of multiple set members are specified with members separated by commas (,). A consequence of this is that SET member values should not themselves contain commas.
+
+For example, a column specified as SET('one', 'two') NOT NULL can have any of these values:
+''
+'one'
+'two'
+'one,two'
+A SET column can have a maximum of 64 distinct members.
+
+find_in_set
+https://www.w3schools.com/sql/func_mysql_find_in_set.asp
+https://stackoverflow.com/questions/51335920/find-in-set-with-multiple-value
+
+The FIND_IN_SET() function returns the position of a string within a list of strings.
+FIND_IN_SET(string, string_list)
+
+SELECT * FROM tablename
+WHERE FIND_IN_SET('12', category_id) OR FIND_IN_SET('13', category_id) OR FIND_IN_SET('15', category_id)
+
+
+mysql enum
+https://www.geeksforgeeks.org/enumerator-enum-in-mysql/
+An ENUM in MySQL is a string data type that allows you to restrict a column’s values to a predefined set of options. It is a string object whose value is decided from a set of permitted literals (values) that are enumerated explicitly at the time of column creation.
+
+column ENUM (‘value_1′,’value_2′,’value_3’)
+
+mysql enum vs set
+https://stackoverflow.com/questions/14797374/mysql-enum-vs-set
+ENUM = radio fields (only accepted values are those listed, may only choose one)
+SET = checkbox fields (only accepted values are those listed, may choose multiple)
+
+------------------------------------------------
+mysql nested queries
+https://www.geeksforgeeks.org/mysql-subquery/
+
+A subquery is embedded inside another query and acts as input for that query. Subqueries are also called inner queries and they can be used in various complex operations in SQL.
+Subqueries help in executing queries with dependency on the output of another query. Subqueries are enclosed in parentheses.
+
+SELECT * 
+FROM Employee 
+WHERE department=(SELECT department FROM Departments WHERE deptid=1);
+
+------------------------------------------------
+mysql schema for chat system
+https://medium.com/@mutationevent/mysql-schema-for-a-chat-application-7e0067dd04fd
+
+This schema includes the following tables:
+users: Stores information about each user, including their username and password.
+conversations: Stores information about each conversation, including its name and creation date.
+messages: Stores the messages sent in each conversation, including the sender’s ID, the conversation ID, and the message body.
+conversation_participants: Stores the relationships between conversations and users, indicating which users are participating in each conversation.
+
+------------------------------------------------

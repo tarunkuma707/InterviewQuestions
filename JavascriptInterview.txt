@@ -1,0 +1,63 @@
+=======================Javascript====================
+Let, Var, Const difference
+Hoisting in Javascript
+Event Loop
+Tempral Deadzone in javascript
+Hoisting in arrow function
+Spread Operator and Rest Operator 
+ES6 Features
+Shallow copy and deep copy
+Closures with example
+Map and reduce in javascript
+Promise and callback
+Arrow function
+Recursive function
+Prototypes in javascript
+Object Prototypes
+this keyword in JavaScript
+this keyword in a function
+Event bubbling and event capturing
+Event Loop
+Currying
+IIFI
+Map, filter, reduce 
+Can we apply the condition on map function.
+Generators in JavaScript
+Closures
+Anonumous Function
+Function statement, function expression and Function declaration
+FetchAPIs and Axios
+Web APIs
+Block scope is also compound statement
+Shadowing
+1
+function x(){
+	settimeout(function(){
+	console.log(i);
+},1000);
+var i=1;
+}
+-----
+2
+for(var i=0;i<=10;i++){
+    setTimeout(()=>{
+        console.log(i);
+    },1000)
+}
+-------------------
+3
+console.log('script starts');
+
+setTimeout(function(){
+    console.log('set time out')
+},0);
+
+Promise.resolve().then(function(){
+    console.log('promise 1');
+}).then(function(){
+    console.log('promise 2');
+});
+
+console.log('script ends');
+Why promise execute first then settimeout
+

@@ -1,0 +1,6 @@
+========================== PHP ========================================
+Static common classes php
+Traits
+Inheritance
+Local variable and global variable.
+Inheritance

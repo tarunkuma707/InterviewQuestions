@@ -1,0 +1,1008 @@
+node js interview questions:
+https://www.geeksforgeeks.org/node-interview-questions-and-answers/
+
+Node latest stable version: node 22
+
+--------------------------------------
+Domain: Supply Chain Management
+Supply chain management (SCM) is the process of managing the flow of goods, data, and finances from the start of a product's life cycle to its delivery to the customer
+
+--------------------------------------
+nodejs working
+https://www.geeksforgeeks.org/explain-the-working-of-node-js/
+
+Working of Node.js
+Node.js accepts the request from the clients and sends the response, while working with the request node.js handles them with a single thread. To operate I/O operations or requests node.js use the concept of threads. Thread is a sequence of instructions that the server needs to perform. It runs parallel on the server to provide the information to multiple clients. Node.js is an event loop single-threaded language. It can handle concurrent requests with a single thread without blocking it for one request.
+
+Node.js basically works on two concept
+Asynchronous
+Non-blocking I/O
+
+1. Non-blocking I/o
+Non-blocking i/o  means working with multiple requests without blocking the thread for a single request. 
+
+2. Asynchronous
+Asynchronous is executing a callback function. The moment we get the response from the other server or database it will execute a callback function. Callback functions are called as soon as some work is finished and this is because the node.js uses an event-driven architecture. The single thread doesn’t work with the request instead it sends the request to another system which resolves the request and it is accessible for another request.
+
+
+two extremely important features of node.js  
+Event loop
+Thread pool
+
+Event loop:
+The event loop contains a single thread and is responsible for handling easy tasks like executing callbacks and network I/O.
+
+Thread pool
+Though node.js is single-threaded, it internally maintains a thread pool. When non-blocking requests are accepted these are processed in an event loop, but while accepting blocking requests it checks for available threads in a thread pool, assigns a thread to the client’s request which is then processed and send back to the event loop, and response is sent to the respective client.
+
+--------------------------------------
+--------------------------------------
+imp topics order:
+synchronous vs asynchronous
+synchronous vs asynchronous javascript
+javascript synchronous or asynchronous
+nodejs synchronous or asynchronous
+callback
+promise
+promise chaining
+async await
+
+--------------------------------------
+synchronous vs asynchronous programming
+https://www.geeksforgeeks.org/synchronous-and-asynchronous-programming/
+
+Synchronous and Asynchronous Programming
+In synchronous programming, tasks are executed sequentially, with each operation waiting for the previous one to complete before proceeding. This method ensures predictability and simplicity in code execution but may lead to inefficiencies when dealing with time-consuming operations.
+On the other hand, asynchronous programming allows tasks to run concurrently, enabling non-blocking execution and better resource utilization. By using callbacks, promises, or async/await syntax, asynchronous programming enhances application responsiveness and scalability
+
+Synchronous Programming
+Synchronous programming, also known as blocking or sequential programming, executes the tasks in a predetermined order, where each operation waits for the previous one to complete before proceeding. This approach ensures deterministic behaviour and provides simplicity in code execution, making it suitable for scenarios where tasks have dependencies or require sequential processing. However, synchronous programming may lead to reduced responsiveness and performance in applications with time-consuming operations.
+
+Asynchronous Programming
+Asynchronous programming allows tasks to execute independently of one another, enabling concurrent execution and improved performance. Unlike synchronous programming, where each task waits for the previous one to complete, asynchronous tasks can run concurrently, utilizing resources more efficiently and enhancing responsiveness in applications. This approach is particularly useful for handling I/O operations, fetching data from a database or making network requests, where waiting for the operation to complete would otherwise result in idle time. By leveraging callbacks, promises, or async/await syntax in modern programming languages, we can manage asynchronous operations effectively, leading to more scalable and responsive applications.
+
+When to Use Asynchronous vs Synchronous
+Choosing between asynchronous (async) and synchronous (sync) programming depends on the specific needs of your application. One can use sync programming when tasks need to be executed in a strict sequence and when operations are quick, simple, and do not involve extensive waiting periods, such as basic scripts
+
+In contrast, async programming is ideal for applications that need to handle multiple operations concurrently, especially when dealing with I/O tasks, or real-time data processing. Async is suitable for web servers, networked applications, user interfaces, and scenarios requiring high responsiveness and scalability, such as chat applications, streaming services, and any application with numerous simultaneous users or tasks. 
+
+--------------------------------------
+synchronous vs asynchronous javascript
+https://www.geeksforgeeks.org/synchronous-and-asynchronous-in-javascript/
+
+What is Synchronous JavaScript?
+In synchronous programming, operations are performed one after the other, in sequence. So, basically each line of code waits for the previous one to finish before proceeding to the next. This means that the program executes in a predictable, linear order, with each task being completed before the next one starts.
+e.g.
+console.log("Hi");
+console.log("Geek");
+console.log("How are you?");
+
+What is Asynchronous JavaScript?
+Asynchronous programming, on the other hand, allows multiple tasks to run independently of each other. In asynchronous code, a task can be initiated, and while waiting for it to complete, other tasks can proceed. This non-blocking nature helps improve performance and responsiveness, especially in web applications.
+e.g.
+console.log("Hi");
+setTimeout(() => {
+    console.log("Geek");
+}, 2000);
+console.log("End");
+
+--------------------------------------
+is javascript synchronous or asynchronous
+
+JavaScript is synchronous by default, but it can also be asynchronous: 
+
+Synchronous
+JavaScript is synchronous by default, meaning that it executes code sequentially, one line at a time. Each line of code waits for the previous line to finish before moving on to the next. 
+
+Asynchronous
+JavaScript can also be asynchronous, meaning that it can run tasks in the background.
+
+--------------------------------------
+is node js synchronous or asynchronous
+
+https://codedamn.com/news/nodejs/asynchronous-vs-synchronous-programming-in-node-js
+The Node js runtime is based on Chrome’s V8 JavaScript engine. Node js is a lightweight and scalable network-driven app framework built on an asynchronous event-driven JavaScript runtime.
+
+https://stackoverflow.com/questions/17607280/why-is-node-js-asynchronous#:~:text=js%20asynchronous%3F-,Node.,lots%20of%20non%2Dblocking%20operations.
+Javascript is not an "asynchronous language"; rather, node.js has a lot of asynchronous APIs. Asynchronous-ness is a property of the API and not the language. The ease with which functions can be created and passed around in javascript makes it convenient to pass callback functions, which is one way to handle control flow in an asynchronous API
+
+Why is node.js asynchronous?
+Node.js favors asynchronous APIs because it is single-threaded. This allows it to efficiently manage its own resources, but requires that long-running operations be non-blocking, and asynchronous APIs are a way to allow for control of flow with lots of non-blocking operations.
+
+--------------------------------------
+what are callbacks in node js
+
+https://www.freecodecamp.org/news/nodejs-callbacks/#:~:text=By%20Aditya%20Gupta-,Node.,help%20us%20make%20asynchronous%20calls.
+Node.js callbacks are a special type of function passed as an argument to another function.
+They're called when the function that contains the callback as an argument completes its execution, and allows the code in the callback to run in the meantime.
+Callbacks help us make asynchronous calls. Even Node.js APIs are written in a way that supports callbacks.
+
+https://www.geeksforgeeks.org/node-js-callback-concept/
+A callback in Node is a non-blocking function that executes upon task completion, enabling asynchronous processing. It facilitates scalability by allowing Nodejs to handle multiple requests without waiting for operations to conclude
+
+Note:
+Callbacks helps to perform asynchronous programming as other tasks can run in parllel therefore callbacks are non blocking in nature and also, 
+the callback will be called when some particular task has been done enabling to behave asynchronous programming like synchronous.
+Callbacks/Promises/async await helps to perform asynchronous programming.
+
+--------------------------------------
+promise in node js
+https://www.geeksforgeeks.org/promises-in-node-js/
+
+Promises in Node.js
+Promises in Node.js provide a powerful way to handle asynchronous operations. They offer a cleaner, more intuitive way to work with asynchronous code compared to traditional callbacks, allowing you to manage operations that might take time to complete, like reading files, making HTTP requests, or interacting with databases.
+
+What are Promises?
+A promise is basically an advancement of callbacks in Node. In other words, a promise is a JavaScript object which is used to handle all the asynchronous data operations.
+
+This is what happens due to the nesting of callback functions. 
+Imagine if you need to perform multiple nested operations. That would make your code messy and very complex. In Node.js world, this problem is called “Callback Hell”. To resolve this issue we need to get rid of the callback functions nesting. This is where Promises come into the picture. A Promise in Node means an action which will either be completed or rejected. In case of completion, the promise is kept and otherwise, the promise is broken. So as the word suggests either the promise is kept or it is broken. And unlike callbacks, promises can be chained. 
+
+Callbacks to Promises
+Promises notify whether the request is fulfilled or rejected. Callbacks can be registered with the .then() to handle fulfillment and rejection. The .then() can be chained to handle the fulfillment and rejection whereas .catch() can be used for handling the errors(if any).
+
+Nested Promises
+Often you will encounter situations where you need to make use of nested Promises. Nested promises begin with a .then() and in each of the .then() we have a return statement. After the return statement, .then() follows in the same manner. Multiple .then() methods are used in order to declare nested promises (which are dependent on each other for their own execution).
+Now as compared to using the callbacks, our code looks a lot cleaner than before. As the .then() can be chained together, therefore every Promise is easy to identify in the code. The .catch(err) is executed if error(s) occurs. 
+
+Creating Promises
+You can always create your own custom Promises in Node using the new constructor. 
+Following example will help us to understand how we may create custom promises:-
+
+Example:
+const aPromise = new Promise(function(resolve, reject) {
+    request.get(options, function(err, resp, body) {
+        if (err) {
+            reject(err);
+        } else {
+            resolve(JSON.parse(body));
+        }
+    })
+});
+
+Summary
+Promises in Node.js are a crucial tool for managing asynchronous operations. They offer a cleaner, more intuitive alternative to callbacks, with built-in support for error handling and chaining.
+
+--------------------------------------
+promise chaining in node js
+https://www.geeksforgeeks.org/node-js-promise-chaining/
+
+Promise chaining: Promise chaining is a syntax that allows you to chain together multiple asynchronous tasks in a specific order. This is great for complex code where one asynchronous task needs to be performed after the completion of a different asynchronous task.
+Promise chaining occurs when the callback function returns a promise. It allows you to chain on another then call which will run when the second promise is fulfilled. Catch can still be called to handle any errors that might occur along the way.
+
+--------------------------------------
+async await in node js
+https://www.geeksforgeeks.org/async-await-in-node-js/
+
+Async and await in Node are the modern way of handling asynchronous operations more efficiently. These are powerful keywords that replaces the traditional callback and Promise chaining approaches.
+
+Handling Asynchronous Operations Before Async Await
+Callbacks
+Promises
+
+Callbacks
+callbacks were the only official way provided by Node to run one function after another.
+app.get('/', function(){
+     function1(arg1, function(){
+       ...
+    })
+});
+The problem with this kind of code is that this kind of situations can cause a lot of trouble and the code can get messy when there are several functions. This situation is called what is commonly known as a callback hell. So, to find a way out, the idea of Promises and function chaining was introduced.
+
+Promises
+function fun1(req, res){
+   return request.get('http://localhost:3000')
+   .catch((err) =>{
+     console.log('found error');
+   })
+   .then((res) =>{
+    console.log('get request returned.');
+   });
+}
+Explanation: The above code demos a function implemented with function chaining instead of callbacks. It can be observed that the code is now more easy to understand and readable. The code basically says that GET localhost:3000, catch the error if there is any, if there is no error then implement the following statement console.log
+
+Async Await
+Async Await are the modern tools in node for handling async operations providing better redability to the code. This functions with async keyword automatically returns a promise.
+The functions need not to be chained one after another, simply await the function that returns the Promise. But the function async needs to be declared before awaiting a function returning a Promise.
+
+async function fun1(req, res){
+	let response = await request.get('http://localhost:3000');
+	if (response.err) { console.log('error');}
+	else { console.log('fetched response');
+}
+Explanation: The code above basically asks the javascript engine running the code to wait for the request.get() function to complete before moving on to the next line to execute it. The request.get() function returns a Promise for which user will await . Before async/await, if it needs to be made sure that the functions are running in the desired sequence, that is one after the another, chain them one after the another or register callbacks.
+
+How Async/ Await works?
+Define an async function, which means use the async keyword before the function definition. This function implecitly returns a promise.
+async fun(){
+    //... 
+}
+
+Then use the await keyword before the function returning a promise, it pauses the execution untill the promise is resolved
+async fun(){
+    let response = await fetchData();
+    return response;
+}
+
+Summary
+Async await are the modern way of handling asynchronous operations. They help the promises, providing synchronous like syntax.
+
+--------------------------------------
+--------------------------------------
+what is a module in nodejs
+https://www.geeksforgeeks.org/what-are-modules-in-node-js/
+
+What are Modules in Node.js ?
+In Node.js Application, a Module can be considered as a block of code that provide a simple or complex functionality that can communicate with external application. Modules can be organized in a single file or a collection of multiple files/folders. Almost all programmers prefer modules because of their reusability throughout the application and ability to reduce the complexity of code into smaller pieces. 
+
+Types of Modules:  In Nodejs, there is 3 type of modules namely
+Core Modules (built-in)
+Local Modules (Custom)
+Third-Party Modules
+
+Core Modules:  Node.js comes with dozens of built-in modules. These built-in modules are sometimes referred to as core modules. The module system is built around the require function. This function is used to load a module and get access to its contents. require is a global variable provided to all your Node.js scripts, so you can use it anywhere you like. require() function will return a JavaScript type depending on your module.
+
+Syntax for Importing Module: 
+const module = require("Name_of_Module_to_be_imported");
+
+How to use Core Module: You can directly use the Nodejs core module in your application without any installation. 
+
+// Working code of fs module
+const fs = require('fs'); // Import fs module
+fs.writeFileSync('notes.txt', 'I love to code');
+
+Here is the list of some Nodejs Core Modules: 
+Core Modules Name	Description 
+fs					To handle the file system.
+http				To make Node.js act as an HTTP server
+https				To make Node.js act as an HTTPS server.
+
+
+Local Modules: Putting all your code in a single file is not a good idea. As you add more code, you’ll want to stay organized and break your Node.js app into multiple scripts that all work together. For that purpose, we can create local modules in our application. 
+
+Exporting from files: Firstly we need to create a file called utils.js. Now We can export javascript code written on this file using module.exports. In below a function is defined and assigned to the module.exports. 
+
+Utils.js: Write the below code in the utils.js file
+const tests = function() {
+    console.log("Yehh! Local file is running successfully...");
+}
+module.exports = tests;
+
+Importing your own files:  Now we need to import the local file into index.js. require function is also used for importing the files in the directory. All you need to do is provide require with a relative path to the script you want to load. 
+
+Filename:- In the index.js file
+const utility = require('./utils.js');
+utility();
+
+The code above uses require to load in a file called utils.js in the src directory. It stores the module contents in a variable, and then use the contents in the script. 
+
+If you run the above index.js script. you will see the message that is logged from the tests function defined in the utils.js file.
+Output: 
+Yehh! Local file is running successfully...
+
+
+Third-party Modules:  Third-party modules can be installed from the NPM (Node Package Manager) available online. 
+Firstly we need to initialize the npm using the npm init command before npm can be used. It creates a package.json file in the root directory and it stores all the information about the third-party module that we have installed as a dependency. 
+
+Installing an NPM module:
+npm install "module_name"
+
+The above command will do the following:
+Firstly, It creates the node_modules directory which npm uses to store all the codes of the npm module you have installed. Secondly, npm add a module as a dependency by listing it in the dependencies property in the package.json file, and lastly, npm creates a package-lock.json file. This is used to store information about the modules you’ve installed which helps keep things fast and secure. 
+
+Examples of Third-Party Module: 
+npm install express
+npm install validator
+npm install mocha
+
+npm modules can be imported into your script using require. To load in an npm module, pass the npm module name to require:
+
+index.js: Write the below code in the index.js file
+const validator = require("validator");
+// Print: true
+console.log("URL is " + validator.isURL("https://google.com"));
+// Print: false
+console.log("Email is " + validator.isEmail("johndoeeg.com"));
+
+--------------------------------------
+module export in nodejs
+https://www.geeksforgeeks.org/node-js-export-module/
+
+Node Export Module
+In Node, the `module.exports` is utilized to expose literals, functions, or objects as modules. This mechanism enables the inclusion of JavaScript files within Node.js applications. The `module` serves as a reference to the current module, and `exports` is an object that is made accessible as the module’s public interface.
+
+Syntax:
+module.exports = literal | object | function
+
+Example 1: Exporting Literals
+Create a file named as app.js and export the literal using module.exports.
+module.exports = "GeeksforGeeks"; 
+
+Create a file named as index.js and import the file app.js to print the exported literal to the console.
+const company = require("./app"); 
+console.log(company); 
+
+Output:
+GeeksforGeeks
+
+Example 2: Exporting Object:
+Create a file named as app.js and export the object using module.exports.
+module.exports = { 
+    name: 'GeeksforGeeks', 
+    website: 'https://geeksforgeeks.org'
+} 
+
+Create a file named as index.js and import the file app.js to print the exported object data to the console.
+const company = require('./app'); 
+console.log(company.name); 
+console.log(company.website); 
+
+Output:
+GeeksforGeeks
+https://geeksforgeeks.org
+
+Example 3: Exporting Function
+Create a file named as app.js and export the function using module.exports.
+module.exports = function (a, b) { 
+    console.log(a + b); 
+} 
+
+Create a file named as index.js and import the file app.js to use the exported function.
+const sum = require('./app'); 
+sum(2, 5); 
+
+Output:
+7
+
+nodejs export class
+https://stackoverflow.com/questions/32657516/how-to-properly-export-an-es6-class-in-node-4
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
+
+--------------------------------------
+import vs require in nodejs
+https://www.geeksforgeeks.org/explain-the-difference-between-require-and-import-in-node/
+
+require() in NodeJS:
+require() is a built-in function in NodeJS used to load modules.
+It takes the module's path as an argument and returns the exported content of the module.
+require() is synchronous, meaning it loads modules one after another, blocking the execution until the module is loaded.
+
+import in NodeJS:
+'import' is a feature introduced in ES6 (ECMAScript 2015) for importing modules in JavaScript.
+It's used to load modules, similar to require(), but it's more modern and standardized.
+'import' is asynchronous and supports lazy loading, meaning it loads modules only when needed, which can improve performance.
+
+--------------------------------------
+--------------------------------------
+how to create a node project
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment
+
+Setting up a Node development environment
+Now that you know what Express is for, we'll show you how to set up and test a Node/Express development environment 
+
+What is the Express development environment?
+The Express development environment includes an installation of Nodejs, the npm package manager, and (optionally) the Express Application Generator on your local computer.
+
+Node and the npm package manager are installed together from prepared binary packages, installers
+Express is then installed by npm as a dependency of your individual Express web applications (along with other libraries like template engines, database drivers, authentication middleware)
+npm can also be used to (globally) install the Express Application Generator, a handy tool for creating skeleton Express web apps that follow the MVC pattern.
+
+What version of Node/Express should you use?
+Generally you should use the most recent LTS (long-term supported) release
+
+What about databases and other dependencies?
+Other dependencies, such as database drivers, template engines, authentication engines, etc. are part of the application, and are imported into the application environment using the npm package manager
+
+Installing Node
+Windows
+There are a number of node version managers for Windows. Here we use nvm-windows(Node Version Manager)
+
+After nvm-windows has installed, open a command prompt (or PowerShell) and enter the following command to download the most recent LTS version of nodejs and npm:
+nvm install lts
+nvm use 20.11.0
+
+Testing your Nodejs and npm installation
+node -v
+npm -v
+
+let's create a very basic "pure node" server that prints out "Hello World" in the browser when you visit the correct URL in your browser:
+Copy the following text into a file named hellonode.js. This uses pure Node features (nothing from Express):
+//Load HTTP module
+const http = require("http");
+const hostname = "127.0.0.1";
+const port = 3000;
+
+//Create HTTP server and listen on port 3000 for requests
+const server = http.createServer((req, res) => {
+  //Set the response HTTP header with HTTP status and Content type
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World\n");
+});
+
+//listen for request on port 3000, and as a callback function have the port listened on logged
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+The code imports the "http" module and uses it to create a server (createServer()) that listens for HTTP requests on port 3000.
+The createServer() function takes as an argument a callback function that will be invoked when an HTTP request is received.
+
+Start the server
+node hellonode.js
+
+Navigate to the URL http://127.0.0.1:3000. If everything is working, the browser should display the string "Hello World".
+
+
+Using npm
+npm is the most important tool for working with Node applications. npm is used to fetch any packages (JavaScript libraries) that an application needs for development, testing, and/or production, and may also be used to run tests and tools used in the development process.
+
+You can manually use npm to separately fetch each needed package. Typically we instead manage dependencies using a plain-text definition file named package.json
+This file lists all the dependencies for a specific JavaScript "package", including the package's name, version, description, initial file to execute, production dependencies, development dependencies, versions of Node it can work with, etc. The package.json file should contain everything npm needs to fetch and run your application
+
+To use the Express library you call the require() function in your index.js file to include it in your application.
+const express = require("express");
+const app = express();
+const port = 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}!`);
+});
+
+This imports the "express" module using require() and uses it to create a server (app) that listens for HTTP requests on port 3000
+The app.get() function only responds to HTTP GET requests with the specified URL path ('/')
+
+start the server
+node index.js
+
+Navigate to the URL http://localhost:3000/. If everything is working, the browser should display the string "Hello World!".
+
+Development dependencies
+If a dependency is only used during development, you should instead save it as a "development dependency" (so that your package users don't have to install it in production). For example, to use the popular JavaScript Linting tool ESLint you would call npm as shown:
+npm install eslint --save-dev
+
+The following entry would then be added to your application's package.json:
+"devDependencies": {
+	"eslint": "^7.10.0"
+}
+
+Running tasks
+In addition to defining and fetching dependencies you can also define named scripts in your package.json files and call npm to execute them with the run-script command.
+
+For example, to define a script to run the eslint development dependency that we specified in the previous section we might add the following script block to our package.json file
+"scripts": {
+  // …
+  "lint": "eslint src/js"
+  // …
+}
+
+We would then be able to run eslint using npm by calling:
+npm run lint
+
+how-to-add-a-custom-script-to-package-json-that-runs-a-javascript-file
+https://www.geeksforgeeks.org/how-to-add-a-custom-script-to-package-json-that-runs-a-javascript-file/
+
+package.json
+"scripts": {
+    "start": "node index.js",
+    "run-script": "node script.js"
+}
+
+npm run run-script
+npm start
+
+--------------------------------------
+node commands
+https://www.geeksforgeeks.org/15-npm-commands-that-every-node-js-developer-should-know/
+
+NPM Install Command: Installs a package in the package.json file in the local node_modules folder.
+npm install/i
+
+NPM Uninstall Command: Remove a package from the package.json file and removes the module from the local node_modules folder.
+npm uninstall 
+
+NPM Update Command: This command updates the specified package. If no package is specified then it updates all the packages in the specified location.
+npm update 
+
+NPM Initialize Command Creates a package.json file in our directory. It basically asks some questions and finally creates a package.json file in the current project directory.
+npm init
+
+NPM Start Command Runs a command that is defined in the start property in the scripts. If not defined it will run the node server.js command.
+npm start
+
+NPM Build Command: It is used to build a package.
+npm build
+
+npm run build
+https://stackoverflow.com/questions/43664200/what-is-the-difference-between-npm-install-and-npm-run-build
+npm run build does nothing unless you specify what "build" does in your package.json file.
+
+npm build
+https://handsonreact.com/docs/build-deploy#:~:text=npm%20run%20build%20creates%20a,enables%20long%20term%20caching%20techniques.
+npm run build creates a build directory with a production build of your app
+
+--------------------------------------
+how to shut down nodejs server
+https://stackoverflow.com/questions/10522532/stop-node-js-program-from-command-line
+Stop node.js program from command line
+To end the program, you should be using Ctrl + C. If you do that, it sends SIGINT, which allows the program to end gracefully, unbinding from any ports it is listening on.
+
+https://www.w3schools.com/nodejs/met_server_close.asp
+Node.js server.close() Method
+
+Stop listening for connections:
+var http = require('http');
+var srvr = http.createServer(function (req, res) {
+  res.write('Hello World!');
+  res.end();
+});
+srvr.listen(8080);
+srvr.close();
+
+Definition and Usage
+The server.close() method stops the HTTP server from accepting new connections.
+All existing connections are kept.
+
+--------------------------------------
+nodejs mysql db connection
+https://www.geeksforgeeks.org/node-js-connect-mysql-with-node-app/
+
+Node.js Connect Mysql with Node app
+Prerequisites:
+Node.js: Download and install from nodejs.org.
+MySQL: Download and install from mysql.com.
+MySQL Workbench (optional): A GUI tool for MySQL, helpful for database management
+
+
+Approach
+To Connect MySQL with the Node App we will be using the mysql npm package.
+npm install mysql
+
+Database Connection
+// Filename - server.js
+
+// importing mysql module
+const mysql = require('mysql');
+
+// configurations for creating mysql connection
+const connection = mysql.createConnection({
+    host: 'localhost',     // host for connection
+    port: 3306,            // default port for mysql is 3306
+    database: 'test',      // database from which we want to connect our node application
+    user: 'root',          // username of the mysql connection
+    password: 'root'       // password of the mysql connection
+});
+
+// executing connection
+connection.connect(function(err) {
+    if (err) {
+        console.log("error occurred while connecting");
+    } else {
+        console.log("connection created with mysql successfully");
+    }
+});
+
+--------------------------------------
+nodejs mongo db connection
+https://www.geeksforgeeks.org/how-to-connect-node-js-to-a-mongodb-database/
+
+How to Connect Node to a MongoDB Database ?
+To connect node to a MongoDB database we can use mongoose library from npm, It is an Object Data Modeling Library that provides predefined methods for database connection, creating schema and models.
+
+MongoDB is a NoSQL database used to store large amounts of data without any traditional relational database table. Instead of rows & columns, MongoDB used collections & documents to store data. A collections consist of a set of documents & a document consists of key-value pairs which are the basic unit of data in MongoDB.
+
+
+Steps to Connect Node to a MongoDB Database
+Install mongoose
+npm install mongoose
+
+Import the mongoose library
+const mongoose = require("mongoose");
+
+Use the Mongoose connect method to establish the connection
+mongoose.connect("mongodb://localhost:27017/collectionName", {});
+
+--------------------------------------
+--------------------------------------
+middleware in express js
+https://www.geeksforgeeks.org/middleware-in-express-js/
+
+What is Middleware in Express?
+Middleware in Express refers to functions that process requests before reaching the route handlers. These functions can modify request and response objects, end the request-response cycle, or call the next middleware function.
+
+Middleware functions are executed in the order they are defined.
+They can perform tasks like authentication, logging, or error handling.
+
+Syntax
+app.use((req, res, next) => {
+    console.log('Middleware executed');
+    next();
+});
+
+How Middleware Works in Express.js?
+In Express.js, middleware functions are executed sequentially in the order they are added to the application. When a request is received, it is passed through the middleware functions in the order they were defined. Each middleware can perform a task and either send a response or call the next() function to pass control to the next middleware function.
+
+Here’s how the typical flow looks:
+
+Request arrives at the server.
+Middleware functions are applied to the request, one by one.
+Each middleware can either:
+Send a response and end the request-response cycle.
+Call next() to pass control to the next middleware.
+If no middleware ends the cycle, the route handler is reached, and a final response is sent.
+
+Types of Middleware
+ExpressJS offers different types of middleware and you should choose the middleware based on functionality required.
+
+Application-level middleware: Bound to the entire application using app.use() and executes for all routes.
+Router-level middleware: Associated with specific routes using router.use() and executes for routes defined within that router.
+Error-handling middleware: Handles errors during the request-response cycle. Defined with four parameters (err, req, res, next).
+
+--------------------------------------
+what is tslint
+TSLint is a tool that checks TypeScript code for errors and formatting issues.
+
+What Are TSLint and ESLint?
+TSLint: TSLint was the linting tool for TypeScript projects. It helped enforce coding styles, detect issues, and ensure code quality. However, TSLint has been deprecated since 2019.
+ESLint: ESLint is a powerful linting tool for JavaScript and TypeScript.
+
+tslint vs eslint
+https://stackoverflow.com/questions/65559369/difference-between-eslint-and-tslint
+
+--------------------------------------
+sonar issues in node
+"Sonar issues" in Node.js refer to code quality problems detected by the SonarQube static analysis tool within your Node.js applications, including potential bugs, security vulnerabilities, and code smells like complex functions, duplicated code, or poorly formatted code, all of which can impact maintainability and reliability of your application. 
+
+unit testing tools in node js
+mocha, jest
+
+--------------------------------------
+--------------------------------------
+Infosys nodejs interview questions:
+
+1. What is node.js?
+Node.js is a free, open-source, JavaScript runtime environment that allows us to create: server-side web applications
+
+2. How node.js works?
+https://www.geeksforgeeks.org/explain-the-working-of-node-js/
+
+Working of Node.js
+Node.js accepts the request from the clients and sends the response, while working with the request node.js handles them with a single thread. To operate I/O operations or requests node.js use the concept of threads. Thread is a sequence of instructions that the server needs to perform. It runs parallel on the server to provide the information to multiple clients. Node.js is an event loop single-threaded language. It can handle concurrent requests with a single thread without blocking it for one request.
+
+Node.js basically works on two concept
+Asynchronous
+Non-blocking I/O
+
+Non-blocking I/o
+Non-blocking i/o  means working with multiple requests without blocking the thread for a single request. 
+
+Asynchronous
+Asynchronous is executing a callback function. The moment we get the response from the other server or database it will execute a callback function. Callback functions are called as soon as some work is finished
+
+3. What is event loop in NodeJS Architecture?
+The event loop is a core component of Node.js that manages asynchronous operations and allows Node.js to perform non-blocking I/O operations.
+
+How it works?
+The event loop is a single-threaded loop that constantly checks for events and callbacks in the event queue. When an event occurs, the event loop places it in the queue and processes the events in the order they were received. 
+
+What it does?
+The event loop:  
+Handles multiple tasks concurrently by running them in a non-blocking manner 
+Picks up events like HTTP requests and call of callback functions 
+ 
+Why it's important?
+The event loop is essential for asynchronous programming in Node.js. Asynchronous programming allows us to write code that does not block the execution of other tasks. 
+
+4. Which module is used for web based operations in NodeJS?
+Node.js Built-in Modules
+Module	Description
+http	To make Node.js act as an HTTP server
+https	To make Node.js act as an HTTPS server.
+
+5. What are the pros and cons of Node.js?
+https://www.geeksforgeeks.org/the-pros-and-cons-of-node-js-in-web-development/
+https://www.epam.com/careers/blog/5-node-js-advantages-and-disadvantages-and-what-they-mean-for-your-project
+
+Pros of Using Node.js:
+Speed:
+One of the key benefits of Node.js development is its speed, which makes it a great choice for dynamic applications. The runtime environment of Node.js is based on an event loop that handles multiple concurrent requests easily and quickly, allowing you to scale your application with ease.
+
+Productivity:
+Node.js is a highly productive platform for developing web applications. It’s a single-threaded, event-driven environment, which makes it ideal for real-time applications such as chat and video streaming. This makes Node.js an ideal choice for building highly interactive websites
+
+Error handling:
+Node.js has a built-in error-handling mechanism that allows you to catch errors at runtime and do something with them. This is similar to the try/catch mechanism
+
+The Cons of Using Node.js:
+It has asynchronous programming
+Asynchronous programming in Node.js relies heavily on callbacks. Nesting callbacks can result in complex and hard-to-read code structures, making maintenance and debugging a challenge.
+
+6. How Node.js overcomes the problem of blocking of I/O operations?
+https://www.geeksforgeeks.org/explain-the-concept-of-non-blocking-i-o-in-node/
+
+concept of non-blocking I/O in Node
+In traditional synchronous programming models, I/O operations such as reading from a file or making network requests block the execution of the program until the operation completes. This means that if there are multiple I/O operations, they are processed sequentially, the program waits for each operation to finish.
+
+Non-blocking I/O, on the other hand, allows a program to continue executing other tasks while waiting for I/O operations to complete. Instead of halting the entire program, non-blocking I/O utilizes asynchronous callbacks or promises to handle I/O operations in the background. This enables Node to handle multiple operations concurrently without being blocked, resulting in better performance and responsiveness.
+
+How NodeJS Implements Non-Blocking I/O:
+Node.js achieves non-blocking I/O through its event loop mechanism. The event loop is a single-threaded loop that continuously checks for pending events and executes callbacks associated with these events. When an asynchronous I/O operation is initiated, Node.js registers a callback function to be executed once the operation completes. Meanwhile, the event loop continues to process other tasks, ensuring that the program remains responsive.
+
+7. What is the difference between Node.js and ajax 
+https://www.geeksforgeeks.org/how-is-ajax-different-from-javascript-libraries-and-run-time-environments/
+
+How AJAX is different from Node.js?
+
+Node.js is a runtime environment for Javascript which helps to use javascript on the server whereas AJAX helps to fetch and send data from the server.
+Node.js is nothing without javascript but AJAX can work with different technologies.
+Node.js works on the server side whereas AJAX acts as a link between the client-side and server-side.
+
+Follow up question:
+ajax is synchronous or asynchronous
+https://www.geeksforgeeks.org/what-is-an-asynchronous-request-in-ajax/
+
+What is an asynchronous request in AJAX ?
+Basically, AJAX provides two types of requests namely Synchronous AJAX and Asynchronous AJAX. Asynchronous requests in AJAX don’t wait for a response from the server whereas synchronous waits for the response. When asynchronous requests are running JavaScript continues to execute other tasks. This allows any website to provide uninterrupted service and improves user experience.
+
+How does it work?
+Whenever an AJAX request is sent, it consists of a body, and header information is sent to the server. The server interprets the request and generates a response and sends it back to the client. While this process takes time as the response is generated and sent over the network. So, if the script makes requests synchronously, it will make the page unresponsive until the response is received. Asynchronous AJAX requests allow JavaScript to send a request but not to wait for a response. JavaScript can continue to execute other tasks making the page responsive while the response is processed. Asynchronous requests can be used by setting the async parameter
+
+Syntax:
+request.open(method, url, async parameter);
+The async parameter has a default value of “true”, so it is by default asynchronous.
+
+request.open(‘GET’, ’https://jsonplaceholder.typicode.com/todos/1′, false);
+
+8. How to gracefully shutdown Node.js server?
+https://nairihar.medium.com/graceful-shutdown-in-nodejs-2f8f59d1c357
+https://stackoverflow.com/questions/6958780/quitting-node-js-gracefully
+
+Graceful shutdown
+Let's imagine you have an HTTP server with NodeJS connected to a database, and every time the server gets called, it sends a request to the database to get/set data which will also be sent to the client by the response.
+Imagine you need to shut down the server. The easiest way to kill the server is <Ctrl>+C. But what if your server didn't finish all the requests? What if some client connections close because we destroyed the server? We will not be able to handle the requests anymore.
+
+Graceful shutdown - When all of your requests to the server have received a response and there is no remaining data processing work to be done.
+
+Creating a graceful shutdown and shutting down the server in the correct way is essential. You can't know what can happen to the requests made to the server. When you shut down it immediately, you can make a mistake and kill the process, which is doing something important at the moment.
+
+Here are the four steps to quickly do a graceful shutdown.
+Handle process kill signal
+Stop new requests from client
+Close all data process
+Exit from process
+
+First, we need to handle the server someone wants to shut down. After that, we need to complete all the requests and stop taking new ones from users to the server, so we can be sure that there are no pending requests from users before shutting down the server. After that, we need to close all the data processing (i.e. databases etc.), and finally, we can exit from the process.
+
+Handle process kill signal
+'SIGINT' signal is generated by clicking<Ctrl>+C in the terminal.
+
+Stop new requests from client
+Now we need to stop the HTTP server and stop accepting new requests.
+We can do that by using the server.close function. 
+
+Close all data process
+In this example, the critical point is to close the MongoDB connection
+
+Exit from process
+As we know, NodeJS will exit when the EventLoop queue is empty and there is nothing left to do.
+But sometimes, your application can have more functions and will not exit automatically. At this point comes our last work to do.
+We need to exit from the process using process.exit function.
+
+And final graceful shutdown server example will look like this:
+process.on('SIGINT', () => {
+  console.info('SIGINT signal received.');
+  console.log('Closing http server.');
+  server.close(() => {
+    console.log('Http server closed.');
+    // boolean means [force], see in mongoose doc
+    mongoose.connection.close(false, () => {
+      console.log('MongoDb connection closed.');
+      process.exit(0);
+    });
+  });
+});
+
+Also on server we can do:
+Use Ctrl+C to exit the node process gracefully
+To clean up, you need to find the remains of the process in which node was running and kill it.
+example, 1039 is the process id (yours will be different), so kill -9 1039 will end it, and you'll be able to bind to the port again.
+
+9. What is the command that is used in nodejs to import external libraries?
+The “require” command is used for importing external libraries.
+
+https://www.geeksforgeeks.org/what-command-is-required-for-external-libraries-to-be-imported/
+We need to use the “require” internal modules.
+var http=require ("HTTP")
+
+or “npm install” command for importing third-party or external libraries.
+npm install library_name
+
+list of modules in node js
+https://www.geeksforgeeks.org/node-js-modules/
+
+10. What is npm?
+NPM stands for Node Package Manager, and it's a free, open-source registry(library) and tool for JavaScript software packages
+
+https://www.w3schools.com/whatis/whatis_npm.asp
+Command Line Client
+npm includes a CLI (Command Line Client) that can be used to download and install software
+npm install <package>
+
+Installing npm
+npm is installed with Node.js
+This means that you have to install Node.js to get npm installed on your computer.
+
+All npm packages are defined in files called package.json.
+
+Managing Dependencies
+npm can manage dependencies.
+npm can (in one command line) install all the dependencies of a project.
+Dependencies are also defined in package.json.
+
+11. What is global and local installation of dependencies in Nodejs?
+https://medium.com/@omkarbhavare2406/local-vs-global-packaging-1424bfe5e033
+
+Local Vs Global Packaging
+Node.js includes a useful tool known as npm, serving as the standard package manager. It simplifies the process of downloading and managing dependencies for Node.js packages.
+npm categorizes packages into two types: local and global. 
+
+Local Package:
+Local packages in Node.js refer to dependencies that are specific to a particular project.Installing packages locally means that they’re meant only for use within that project, keeping everything organized and separate from other projects.
+
+Install the Package Locally
+
+npm install <package-name>
+// Installing pacakge locally acts as a dependency
+"dependencies": {
+    "ejs": "^3.1.9",
+    "is-odd": "^3.0.1",
+    "react": "^18.2.0",
+    "tailwindcss": "^3.3.5"
+},
+
+Global Package:
+Global packages in Node.js are like tools that you install on your computer and can use across different projects. When you install a package globally, it’s available system-wide and isn’t tied to a specific project.
+
+Install the Package Globally
+
+npm install -g <package-name>
+Packages which are installed globally does not show up in package.json or package-lock.json files.
+
+But what if I need to Uninstall this packages ?
+Simply navigate to your project & run the following commands
+
+npm uninstall <package-name>  // For Local Package
+npm uninstall -g <package-name>  // For Global Package
+
+12. What is package.json in nodejs?
+https://heynode.com/tutorial/what-packagejson
+What is the purpose of package.json?
+Your project's package.json is the central place to configure and describe how to interact with and run your application. It is used by the npm CLI (and yarn) to identify your project and understand how to handle the project's dependencies. It's the package.json file that enables npm to start your project, run scripts, install dependencies,
+Your project also must include a package.json before any packages can be installed from NPM. 
+
+https://www.geeksforgeeks.org/node-js-package-json/
+Generating Package.json
+A package.json file can be created in two ways.
+
+Using npm init:
+The below command initialize the node app and automatically generates the package.json file.
+npm init
+
+Writing directly to file:
+One can directly write into file with all the required information and can include it in the Node project.
+
+Common Commands
+npm install: Installs all dependencies listed in package.json.
+npm install <package-name>: Installs a new package and adds it to the dependencies or devDependencies.
+npm update: Updates all dependencies to their latest versions.
+npm run <script-name>: Executes the script defined in the scripts section of package.json.
+
+Difference between package.json and package-lock.json files
+https://www.geeksforgeeks.org/difference-between-package-json-and-package-lock-json-files/
+In Node, package.json file contains the list of dependencies and scripts in a project while the package.lock.json specifies their respective versions to ensure consistent installations in different environments.
+
+13. What is the IDE used for developing Nodejs. List the tools and IDEs that are used for Node.js
+
+What is the IDE used for developing Nodejs
+https://www.roro.io/post/best-ide-for-node-js
+
+Top IDEs for Node.js Development
+Visual Studio Code (VS Code)
+Visual Studio Code, often abbreviated as VS Code, is a highly popular and versatile source code editor developed by Microsoft.
+
+Key Features:
+Integrated Debugging Tools
+Node.js specific Extensions
+Integrated Git Control
+
+what is vs code?
+Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running, and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs, such as Visual Studio IDE.
+
+Is VS Code an IDE or not?
+Based on the question, VS code do support many language developments, but with the right extensions it will work very similar to language specific IDE. So without extensions VS code would not really be a IDE.
+
+14. Which is the framework that is most commonly used in Node.js?
+Express.js is one of the most popular frameworks for Node.js: 
+Features
+Express.js is a framework that provides a simple approach to web development. It has features for building web applications and APIs, including routing, middleware support, and a large no of third-party plugins and extensions.
+
+Framework: A framework is a collection of various libraries and tools that are required in the development process of a software application. 
+
+15. Code coverage tools used with Node.js 
+mocha
+jest
+
+--------------------------------------
+--------------------------------------
+difference between nodejs and php
+https://www.bacancytechnology.com/blog/node-js-vs-php
+
+Node is based on JavaScript and it uses an event-driven non-blocking I/O model whereas, PHP is a server-side scripting language mainly used in web development.
+
+Node.js Use Cases:
+Realtime Web Applications
+Node can be your ideal choice when you are intending for online gaming apps, chat apps, and social media apps. The reason is its event-driven architecture and non-blocking I/O that makes it a great choice for handling real-time data.
+
+--------------------------------------
+different types of http requests
+https://www.geeksforgeeks.org/different-kinds-of-http-requests/
+
+HTTP Requests
+HTTP Requests are the message sent by the client to request the data from the server or to perform some actions. Different HTTP requests are:
+
+GET: GET request is used to read/retrieve data from a web server. GET returns an HTTP status code of 200 (OK) if the data is successfully retrieved from the server.
+POST: POST request is used to send data (file, form data, etc.) to the server. On successful creation, it returns an HTTP status code of 201.
+PUT: A PUT request is used to modify the data on the server. It replaces the entire content at a particular location with data that is passed in the body payload. If there are no resources that match the request, it will generate one.
+PATCH: PATCH is similar to PUT request, but the only difference is, it modifies a part of the data. It will only replace the content that you want to update.
+DELETE: A DELETE request is used to delete the data on the server at a specified location.
+
+--------------------------------------
+--------------------------------------
+(take an overview)
+login logout in nodejs
+https://dev.to/m_josh/build-a-jwt-login-and-logout-system-using-expressjs-nodejs-hd2
+
+cors in nodejs
+https://www.geeksforgeeks.org/use-of-cors-in-node-js/
+The word CORS stands for “Cross-Origin Resource Sharing”. Cross-Origin Resource Sharing is an HTTP-header based mechanism implemented by the browser which allows a server or an API(Application Programming Interface) to indicate any origins (different in terms of protocol, hostname, or port) other than its origin from which the unknown origin gets permission to access and load resources.
+
+GraphQL API
+https://hygraph.com/learn/graphql
+GraphQL is built around the concept of "getting exactly what you asked for" without any data under or over fetching.
+
+how to deploy a node project
+
+--------------------------------------
+--------------------------------------
+other imp questions:
+
+cluster in node js
+https://www.w3schools.com/nodejs/ref_cluster.asp
+
+Definition and Usage
+The cluster module provides a way of creating child processes that runs simultaneously and share the same server port.
+Node.js runs single threaded programming, which is very memory efficient, but to take advantage of computers multi-core systems, the Cluster module allows you to easily create child processes that each runs on their own single thread, to handle the load.
+
+Syntax
+The syntax for including the cluster module in your application:
+var cluster = require('cluster');
+
+--------------------------------------
+What is REPL in Node.js? 
+REPL (Read-Eval-Print-Loop) is an interactive Node.js environment that allows you to execute JavaScript code directly and see the results immediately. 
+
+What are streams in Node.js? 
+Streams are a way to handle data in chunks, allowing you to process large amounts of data without loading it into memory all at once. 
+
+What is the purpose of the Buffer class in Node.js? 
+The Buffer class is used to store binary data, such as images, audio, or video, in Node.js. 
+
+Explain the fs module.
+The fs module (filesystem) provides functions for interacting with the file system, such as reading, writing, and deleting files.
+
+--------------------------------------
+--------------------------------------
