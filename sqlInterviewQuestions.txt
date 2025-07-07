@@ -289,7 +289,7 @@ DROP INDEX idx_name ON table_name;
 
 select c.name,o.order_id as total_order
 From Customer as c Inner Join orders as o ON c.id=o.customer_id
-WHERE o.orderdate>= DATE_SUB(DATE_FORMAT(CURRDATE(),"%Y-%m-1"),INTERVAL 1 MONTH)
+WHERE o.orderdate>= DATE_SUB(DATE_FORMAT(CURDATE(),"%Y-%m-1"),INTERVAL 1 MONTH)
 and o.orderdate<DATE_FORMAT(CURRDATE(),"%Y-%m-1")
 
 Group BY c.name,
