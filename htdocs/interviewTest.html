@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function z(){
+        var b =100;
+        function x(){
+            var a =7;
+            function y(){
+                console.log(a,b);
+            }
+            y();
+        }
+        x();
+    }
+    z();
+// console.log('script starts');
+
+// setTimeout(function(){
+//     console.log('set time out')
+// },0);
+
+// Promise.resolve().then(function(){
+//     console.log('promise 1');
+// }).then(function(){
+//     console.log('promise 2');
+// });
+
+// console.log('script ends');
+
+function double(x){
+    return x * 2;
+}
+
+function tripple(x){
+    return x * 3;
+}
+
+const arrayCheck = [1,2,3,4,5];
+const outputnew = arrayCheck.reduce(function(max, current){
+    if(current>max){
+        max = current;
+    }
+    return max;
+},0);
+console.log("=== output New ====");
+console.log(outputnew);
+function checkOdd(x){
+    if (x % 2 == 0)
+        return true;
+    else
+        return false;
+    }
+
+checkOdd(arrayCheck);
+const outputCheck = arrayCheck.filter((x)=>{
+    if (x % 3 == 0)
+        return true;
+    else
+        return false;
+    });
+console.log("===output=====");
+console.log(outputCheck);
+console.log("HHHHHHHHH");
+// var output = array.map(double);
+// console.log(output);
+
+// var outputtri = array.map(tripple);
+// console.log(outputtri);
+
+// function binary(x){
+//     return x.toString(2);
+// }
+
+// var binaryValue = array.map(binary);
+// console.log(binaryValue);
+
+// var binaryValueArrow = array.map((x)=>  x.toString(2) );
+// console.log(binaryValueArrow);
+const users= [
+    {
+        firstname:"Tarun",
+        lastName:"Kumar",
+        age:"33",
+    },
+    {
+        firstname:"donald",
+        lastName:"duck",
+        age:"23",
+    },
+    {
+        firstname:"deepak",
+        lastName:"Kumar",
+        age:"23",
+    },
+    {
+        firstname:"sandeep",
+        lastName:"saini",
+        age:"28",
+    },
+    {
+        firstname:"Ashok",
+        lastName:"Kumar",
+        age:"28",
+    },
+]
+const fullName = users.filter((x)=>x.age>30).map((x)=>x.firstname);
+console.log("========= Age less Name =========");
+console.log(fullName);
+const ageGroup  =   users.reduce(function(acc, current){
+    if(acc[current.age]){
+        acc[current.age]    =++acc[current.age];
+    }
+    else{
+        acc[current.age]=1;
+    }
+    return acc;
+},{});
+console.log("========= Age Group =========");
+console.log(ageGroup);
+
+const output = users.reduce((acc, current) => {
+
+if(current.age < 30){
+    acc.push(current.firstname);
+}
+
+return acc;
+
+}, []);
+console.log("========= Output Group =========");
+console.log(output);
+</script>

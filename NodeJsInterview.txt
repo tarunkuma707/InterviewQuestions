@@ -5,13 +5,13 @@
 
 ================NOdeJs ============
 NOdeJs is singledriven
-Sync or Async
+node js synchronous or asynchronous
 Module in NOdejs
 NPM what is advatange
 Steps to start Nodejs
 How to create APIS without Expressjs
 Middleware in Js
-Concurrency 
+Concurrency  in node js
 Control Flow in NodeJs
 Event Loop
 Disadvantage of Nodejs

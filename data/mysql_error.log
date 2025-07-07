@@ -1,0 +1,15 @@
+2025-05-23 21:21:37 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 15160
+2025-05-23 21:21:37 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2025-05-23 21:21:37 0 [Note] InnoDB: Uses event mutexes
+2025-05-23 21:21:37 0 [Note] InnoDB: Compressed tables use zlib 1.3
+2025-05-23 21:21:37 0 [Note] InnoDB: Number of pools: 1
+2025-05-23 21:21:37 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2025-05-23 21:21:37 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2025-05-23 21:21:37 0 [Note] InnoDB: Completed initialization of buffer pool
+2025-05-23 21:21:37 0 [ERROR] InnoDB: Missing MLOG_CHECKPOINT at 59006573 between the checkpoint 59006573 and the end 59006464.
+2025-05-23 21:21:37 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+2025-05-23 21:21:37 0 [Note] InnoDB: Starting shutdown...
+2025-05-23 21:21:37 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-05-23 21:21:37 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-05-23 21:21:37 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-05-23 21:21:37 0 [ERROR] Aborting

@@ -1,0 +1,267 @@
+function ($number, $x)
+ 
+99, 3
+ 
+[33, 33, 33]
+ 
+100,3
+ 
+[33, 33, 34]
+
+
+<?php
+trait A {
+    public function sayHello($msg) {
+        echo "Hello from A $msg<br/>";
+    }
+}
+
+trait B {
+    public function sayHello() {
+        echo "Hello from B<br/>";
+    }
+}
+
+class MyClass {
+    use A,B{
+        B::sayHello insteadOf A;
+        A::sayHello as sayHelloFromA;
+    }
+}
+
+$obj = new MyClass();
+$obj->sayHello();         // Hello from B
+$obj->sayHelloFromA("T");    // Hello from A
+?>
+
+
+
+<?php
+$x =10;
+$y = 10;
+echo $x <=> $y;
+echo "<br/>=================Switch Case ===============<br/>";
+$int = 4;
+echo $int;
+switch($int){
+    case 1:
+    case 2:
+        echo "This is bus";
+        break;
+    case 3:
+    case 4:
+        echo "This is train";
+        break;
+}
+echo $string ="Raman's opinion is \"PHP is very good language.\"";
+echo "<br/>Array Types<br/>";
+$a = array("maruti","tata","indica","nano");
+$b = array("a"=>"maruti","b"=>"tata","c"=>"indica","z"=>"nano");
+$c = array("cars"=>array("maruti","creta","indica","kiwid","barezza"),"truck"=>array('ashokaleyland','Tata Max'));
+echo "<pre>";
+print_r($a);
+print_r($b);
+print_r($c);
+$x = 8;
+$y = 8.0;
+echo ($x === $y);
+
+interface course {
+    public function subject();
+}
+class Arts implements course{
+    public $subjectname;
+    public function subject(){
+        $this->subjectname="History";
+        echo $this->subjectname;
+    }
+}
+$obj1  = new Arts();
+$obj1->subject();
+echo "<br/>============ Function to reverse a String =========<br/>";
+$string ="Reverse String";
+$reversed = "";
+for($i=strlen($string)-1;$i>=0;$i--){
+    $reversed .= $string[$i];
+}
+echo $reversed;
+
+echo "<br/>============ Function to reverse a String Without Any function =========<br/>";
+$stringfunc ="Reverse String";
+$reversedfunc = "";
+$j = 0;
+while(!empty($stringfunc[$j])){
+    $j++;
+}
+for($i=$j-1;$i>=0;$i--){
+    $reversedfunc .= $stringfunc[$i];
+}
+echo $reversedfunc;
+echo "<br/>============ Check Palindrome =========<br/>";
+$string =    "Madam";
+if(strtolower($string)==strrev(strtolower($string))){
+    echo "String is Palindrome";
+}
+else{
+    echo "String is not Palindrome";
+}
+echo "<br/>============ Second Larget =========<br/>";
+$nums = [10, 20, 4, 45, 99, 99];
+$uniqueArr =   array_unique($nums);
+rsort($uniqueArr);
+echo $uniqueArr[1];
+echo "<br/>============ Prime Numbers =========<br/>";
+$number = 9;
+$check = "1";
+if($number<=2){
+   $check = '2';
+}
+else{
+    echo "HERE ";
+    for($i=2;$i<=sqrt($number);$i++){
+        if($number%$i==0){
+            echo "Value of i is =".$i;
+            $check ='2';
+        }
+    }
+}
+echo "CHECK IS ".$check."  Valued";
+if($check=='1'){
+    echo "Number is prime";
+}
+else{
+    echo "Number is not prime";
+}
+echo "<br/>============ Factorial Numbers with Recursion =========<br/>";
+$factNumber =5;
+echo factorial($factNumber);
+function factorial($factNumber){
+    if($factNumber==1){
+        return 1;
+    }
+    else{
+        $fact  = $factNumber * factorial($factNumber-1);
+        return $fact;
+    }
+}
+echo "<br/>============ Factorial Numbers without Recursion =========<br/>";
+echo factorialNoRec($factNumber);
+function factorialNoRec($factNumber){
+    if($factNumber==1){
+        return 1;
+    }
+    else{
+        $fact   =   1;
+        for($i=1;$i<=$factNumber;$i++){
+            $fact = $fact * $i;
+        }
+        return $fact;
+    }
+}
+echo "<br/>============ Sort Array without funciton =========<br/>";
+$arr = [64, 34, 25, 12, 22, 11, 90];
+print_r(sortArray($arr));
+function sortArray($arr){
+    for($i=0;$i<count($arr);$i++){
+        for($j=0;$j<count($arr)-1;$j++){
+            if($arr[$j]>$arr[$j+1]){
+                $temp = $arr[$j];
+                $arr[$j] = $arr[$j+1];
+                $arr[$j+1] = $temp;
+            }
+        }
+    }
+    return $arr;
+}
+echo "<br/>============ Fabonacci Series =========<br/>";
+$x = 0;
+$y = 1;
+for($k=0;$k<=10;$k++){
+    echo $x.", ";
+    $z = $x + $y;
+    $x =$y;
+    $y = $z;
+}
+echo "<br/>============ Most Frequent Number =========<br/>";
+$nums = [3, 3, 2, 1, 3, 2, 4, 2, 2, 2, 5];
+$countValues  = array_count_values($nums);
+arsort($countValues);
+$first = array_key_first($countValues);
+print_r($first);
+echo "<br/>============ Most Frequent word =========<br/>";
+$stringf ="php is very common language php is very old php is good";
+$splitstring = explode(" ",$stringf);
+$countstring = array_count_values($splitstring);
+arsort($countstring);
+$top3word  = array_slice($countstring,0,3);
+print_r($top3word);
+echo "<br/>============ Get Heighest Score =========<br/>";
+$testString = "Lorem Ipsum is simply dummy text";
+$lowerstring = strtolower($testString);
+$rangeValues = array_flip(range('a','z'));
+$alphaorder = array();
+foreach($rangeValues as $k=>$rangeAdd){
+    $alphaorder[$k]=$rangeAdd+1;
+}
+$xplodestring = explode(" ",$lowerstring);
+$maxScore   =   0;
+$maxString  =   '';
+foreach($xplodestring as $eachstring){
+    $score = 0;
+    $eachchr = str_split($eachstring);
+    foreach($eachchr as $eachWord){
+        $score += $alphaorder[$eachWord];     
+    }
+    if($maxScore<$score){
+        $maxScore = $score;
+        $maxString = $eachstring;
+    }
+}
+echo $maxString.' - '.$maxScore;
+echo "<br/>============ Get Heighest Score Option 2 =========<br/>";
+$testStringf = "Lorem Ipsum is simply dummy text";
+$lowerstringf = strtolower($testString);
+$xplodestringf = explode(" ",$lowerstringf);
+$highScore = 0;
+$highString = '';
+foreach($xplodestringf as $eachWord){
+    $score =0;
+    $splitWord  = str_split($eachWord);
+    foreach($splitWord as $eachchr){
+       $score += (ord($eachchr)+1)-ord('a');
+    }
+    if($highScore<$score){
+        $highScore = $score;
+        $highString = $eachWord;
+    }
+}
+ echo "Word ".$highString." Score =".$highScore;
+ echo "<br/>";
+ echo "<br/>============ Target Number  =========<br/>";
+ $nums = array(0, 1, 2, 3, 4, 5, 6);
+ $result = array();
+ for($i=0;$i<count($nums);$i++){
+    for($j=$i+1;$j<count($nums);$j++){
+        if($nums[$i]+$nums[$j]==7){
+            $result[]   =   array($nums[$i],$nums[$j]);
+        }
+    }
+ }
+ print_r($result);
+ echo "======================= Dependecy Injection ================";
+ class mailsm{
+    public function sendMail($to,$subjectname,$content){
+
+    }
+ }
+ class user{
+    private mailsm $mailsm;
+    public function __construct(mailsm $mailsm)
+    {
+        $this->mailsm = $mailsm;
+    }
+    public function sendmailuser(){
+        $this->mailsm->sendMail("tarunkumar07@yahoo.com","Important","High priority email to got to client");
+    }
+ }
+?>

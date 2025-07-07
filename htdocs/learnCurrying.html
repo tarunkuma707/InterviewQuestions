@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add(x) {
+            return function(y) {
+                return function(z) {
+                return x + y + z;
+                };
+            };
+        }
+        let addresult = add(5)(22)(3);
+        console.log(addresult);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

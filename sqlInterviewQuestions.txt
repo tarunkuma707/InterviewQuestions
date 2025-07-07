@@ -1,0 +1,297 @@
+===================== get emplyess salary whose and category salary ================
+SELECT 
+    employee_name,
+    salary,
+    CASE 
+        WHEN salary < 5000 THEN 'Low'
+        WHEN salary < 10000 THEN 'Average'
+        WHEN salary < 15000 THEN 'More than Average'
+        ELSE 'High'
+    END AS salary_category
+FROM employees;
+================ Palindrom users ============
+SELECT 
+    user_id,
+    username
+FROM 
+    users
+WHERE 
+    username = REVERSE(username);
+=================== Get users who have not loggedin from last one year =================
+
+SELECT * FROM users
+WHERE last_login < NOW() - INTERVAL 1 YEAR;
+
+=================== Get duplicate email id =================
+select email, count(*) from users Group by email HAVING count(*)>1
+
+Students - id, name, email
+Marks - id, stu_id, sub_id, marks
+Subject - id, name
+
+SELECT 
+    s.id AS student_id,
+    s.name AS student_name,
+    SUM(m.marks) AS total_marks
+FROM 
+    student s
+JOIN 
+    marks m ON s.id = m.stu_id
+GROUP BY 
+    s.id, s.name
+ORDER BY 
+    total_marks DESC
+LIMIT 3;
+
+SELECT st.name, sum(mk.marks) from students AS st
+INNER JOIN Marks AS mk ON mk.stu_id= st.id
+INNER JOIN Subject as sub ON sub.id=mk.sub_id
+ORDER BY sum(mk.marks) desc LIMIT 3 OFFSET 0
+
+
+What is MySQL
+MySQL is a popular, open-source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL) to manage and manipulate data. It's widely used for various applications, from small websites to large enterprise systems, due to its reliability, performance, and ease of use.
+
+What is the default port number for MySQL? 3306
+
+What are the different types of MySQL tables (storage engines)? 
+InnoDB
+MyIsam
+Memory
+CSV
+Archive
+
+How do you create a database and a table in MySQL?
+CREATE DATABASE database_name
+
+What is the difference between CHAR and VARCHAR?
+CHAR in MySQL stores characters of fixed length. VARCHAR in MySQL stores characters of variable size.
+
+What are constraints? Name a few in MySQL?
+Constraints in MySQL
+NOT NULL.
+CHECK.
+DEFAULT.
+PRIMARY KEY.
+AUTO_INCREMENT.
+UNIQUE.
+ENUM.
+FOREIGN KEY.
+
+What is the use of the AUTO_INCREMENT keyword?
+The AUTO_INCREMENT keyword in SQL is used to automatically generate a unique, sequential integer value for a column, typically when inserting new rows into a table. This is commonly used for creating primary keys or unique identifiers without manual intervention. 
+
+How do you insert, update, and delete data in a table?
+INSERT INTO table_name (column1, column2, ...)
+    VALUES (value1, value2, ...);
+
+UPDATE table_name
+    SET column1 = value1, column2 = value2, ...
+    WHERE condition;
+
+DELETE FROM table_name
+    WHERE condition;
+
+
+What is the difference between WHERE and HAVING clauses?
+The WHERE clause filters individual rows based on specified conditions before any grouping occurs, while the HAVING clause filters groups of rows based on conditions involving aggregate functions after the grouping has been applied. Essentially, WHERE acts on individual records, and HAVING acts on the results of aggregations. 
+
+MySQL CREATE INDEX Example
+CREATE INDEX ON <TABLENAME> (<col1>,<col2>)
+
+
+What are the ACID properties in databases
+ACID stands for Atomicity, Consistency, Isolation, and Durability. These four key properties define how a transaction should be processed in a reliable and predictable manner, ensuring that the database remains consistent, even in cases of failures or concurrent accesses.
+1. Atomicity: "All or Nothing"
+Atomicity ensures that a transaction is atomic, it means that either the entire transaction completes fully or doesn't execute at all. There is no in-between state i.e. transactions do not occur partially. If a transaction has multiple operations, and one of them fails, the whole transaction is rolled back, leaving the database unchanged. This avoids partial updates that can lead to inconsistency.
+Commit: If the transaction is successful, the changes are permanently applied.
+Abort/Rollback: If the transaction fails, any changes made during the transaction are discarded.
+2. Consistent : The Database should be consistent after and before transaction
+3. Isolation : Multiple transaction can take place without Interferance.
+4. Durability:	Once a transaction is committed, the data is permanently saved — even in case of crash or power loss.
+
+What is a primary key vs. a unique key?
+a primary key uniquely identifies each row in a table and cannot contain NULL values, whereas a unique key prevents duplicate values in a specific column and can allow a single NULL value
+
+What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN?
+INNER JOIN:
+Returns only the records that have matching values in both tables. If there is no match in either table, the row is not returned. 
+LEFT JOIN:
+Returns all records from the left table, along with any matching records from the right table. If there is no match in the right table, NULL values are returned for the columns from the right table. 
+RIGHT JOIN:
+Returns all records from the right table, along with any matching records from the left table. If there is no match in the left table, NULL values are returned for the columns from the left table. 
+FULL JOIN:
+Returns all records from both tables, whether there is a match or not. For unmatched rows, NULL values are returned for the columns from the table without a match. 
+
+What is normalization? What are its types?
+Normalization is a database design technique used to minimize data redundancy and improve data integrity by organizing data into tables and establishing relationships between them. It involves breaking down large tables into smaller, more manageable ones and defining relationships through primary and foreign keys. Different levels of normalization are defined by "normal forms," with the most common being First (1NF), Second (2NF), and Third (3NF) Normal Forms. 
+Here's a breakdown of the main normal forms:
+First Normal Form (1NF):
+A table is in 1NF if it contains only atomic values (indivisible values) and each column has a unique name. It eliminates repeating groups of data by ensuring each cell holds only one value. 
+Second Normal Form (2NF):
+A table is in 2NF if it is already in 1NF and it eliminates partial dependencies. This means that every non-key attribute (column) must depend on the entire primary key, not just part of it. 
+Third Normal Form (3NF):
+A table is in 3NF if it is in 2NF and eliminates transitive dependencies. This means that non-key attributes should not depend on other non-key attributes; they should directly depend on the primary key. 
+Beyond these, there are also Boyce-Codd Normal Form (BCNF), Fourth Normal Form (4NF), and Fifth Normal Form (5NF), which address more complex dependency issues. 
+Why normalize?
+Reduces redundancy:
+Minimizes duplication of data, saving storage space and reducing inconsistencies. 
+Improves data consistency:
+Updates are easier to manage and ensure data remains uniform throughout the database. 
+Prevents anomalies:
+Reduces the risk of insertion, update, and deletion anomalies (issues that can arise when modifying data). 
+Enhances scalability and performance:
+Easier to manage and query the database when data is organized and redundant data is minimized. 
+
+
+What is a foreign key?
+A foreign key is a column or a set of columns in a database table that establishes a link with the primary key of another table. It essentially creates a relationship between the two tables, ensuring data consistency and integrity. This relationship is crucial for maintaining accurate and reliable data within a database. 
+
+
+Explain the difference between TRUNCATE, DELETE, and DROP.
+The key difference between TRUNCATE, DELETE, and DROP lies in their scope and impact on the database table. DELETE removes specific rows based on a condition, TRUNCATE removes all rows while keeping the table structure, and DROP deletes the entire table, including its structure. According to Shiksha.com and Naukri.com, TRUNCATE is a DDL command, while DELETE is a DML command. 
+DELETE:
+Removes specific rows based on a condition (using a WHERE clause).
+A DML (Data Manipulation Language) command, meaning it operates on the data within the table. 
+Each row deletion is logged, which can impact performance, especially with large tables. 
+Can be rolled back (changes can be undone). 
+TRUNCATE:
+Removes all rows from a table. 
+A DDL (Data Definition Language) command, meaning it alters the table's structure or definition. 
+Faster than DELETE because it doesn't log individual row deletions. 
+Cannot be rolled back (changes are permanent). 
+Cannot be used with a WHERE clause (you can't delete specific rows). 
+Cannot be used on tables with foreign key constraints. 
+DROP:
+Removes the entire table, including its structure, data, and associated indexes.
+A DDL command.
+Permanently deletes the table, making it unrecoverable without a backup.
+The fastest of the three commands because it removes the entire table structure. 
+In summary: 
+DELETE: Selective row removal, logged, rollback possible.
+TRUNCATE: Fast, all rows gone, no rollback, no WHERE clause.
+DROP: Table and all its contents permanently removed.
+
+What is the difference between UNION and UNION ALL?
+The key difference is that UNION removes duplicate records, whereas UNION ALL includes all duplicates. This distinction not only changes the number of rows in the query result, but it also impacts performance.
+
+
+How can you optimize a slow-running query?
+Identify the Root Cause: Analyze the query execution plan using tools like EXPLAIN or SHOW PLAN to pinpoint areas of inefficiency. 
+Use Indexes: Add indexes to frequently queried columns to speed up data retrieval. 
+Optimize Joins: Choose the right join type (INNER, LEFT, RIGHT) and minimize the number of joins, especially those with OR conditions. 
+*Avoid SELECT : Specify only the necessary columns to reduce data transfer and processing. 
+Optimize WHERE Clauses: Use appropriate operators and ensure that the WHERE clause filters data effectively. 
+Limit the Result Set: Use pagination or LIMIT/TOP to retrieve a subset of data, especially for large datasets. 
+Use Appropriate Data Types: Choose the smallest data type that accurately represents the data to reduce storage and processing overhead. 
+Avoid Subqueries: Rewrite subqueries as joins where possible, as joins can be more efficient. 
+Use UNION ALL Instead of UNION: UNION ALL does not remove duplicate rows, making it faster than UNION. 
+Consider Caching: Implement caching for frequently accessed data to reduce database load and improve response times. 
+Monitor Query Performance: Use database tools and metrics (logical reads, CPU time, wait time) to track query performance and identify slow queries. 
+Update Database Statistics: Ensure that database statistics are up to date to help the query optimizer make accurate execution plans. 
+Optimize Stored Procedures: If applicable, optimize stored procedures to improve query execution speed. 
+Break Down Complex Queries: Split complex queries into smaller, more manageable ones to simplify optimization. 
+Leverage Database-Specific Features: Take advantage of database-specific features like parallel execution, partitioning, or sharding to improve performance. 
+
+
+How does MySQL handle transactions?
+A transaction is a sequence of one or more SQL statements that are executed as a single unit of work. Transactions are typically used to ensure data integrity and consistency, especially in scenarios where multiple operations must succeed or fail together.
+MySQL transactions follow the ACID properties:
+Atomicity: All operations in a transaction are completed; if one fails, the entire transaction is rolled back.
+Consistency: The database remains in a consistent state before and after the transaction.
+Isolation: Transactions are isolated from each other until they are committed.
+Durability: Once a transaction is committed, its changes are permanent even in case of a system crash.
+
+What is the InnoDB storage engine? How is it different from MyISAM?
+InnoDB and MyISAM are two of the most commonly used storage engines in MySQL. Each has distinct characteristics that make them suitable for different types of applications.
+
+What is the InnoDB Storage Engine?
+InnoDB is a transaction-safe (ACID-compliant) storage engine for MySQL. It is the default storage engine since MySQL 5.5.
+Key Features of InnoDB:
+Transactional Support: Supports transactions with COMMIT, ROLLBACK, and SAVEPOINT.
+Row-level Locking: Reduces contention and allows high concurrency.
+Foreign Key Support: Enforces referential integrity between tables.
+Crash Recovery: Has a robust recovery mechanism using its redo log.
+MVCC (Multi-Version Concurrency Control): Helps achieve high levels of concurrency.
+Clustered Indexes: Primary key index stores the actual row data, improving retrieval speed.
+MyISAM Storage Engine
+MyISAM is an older, non-transactional storage engine used in earlier versions of MySQL.
+Key Features of MyISAM:
+Table-level Locking: Locks the entire table for read/write, which reduces concurrency.
+No Transaction Support: Doesn’t support ROLLBACK or COMMIT.
+Faster Read Performance: Generally faster for read-heavy workloads due to lower overhead.
+No Foreign Key Support: You must enforce referential integrity manually.
+Simplicity: Easier to use and understand for simple applications.
+Smaller Disk Space Usage: Can be more space-efficient in some scenarios.
+Key Differences: InnoDB vs MyISAM
+Feature	InnoDB	MyISAM
+Transactions	Yes (ACID-compliant)	No
+Locking	Row-level	Table-level
+Foreign Keys	Yes	No
+Crash Recovery	Yes (via redo logs)	No
+Read/Write Performance	Good for concurrent workloads	Fast for read-heavy workloads
+Storage Format	Clustered index	Non-clustered
+MVCC	Yes	No
+
+
+What are stored procedures and triggers?
+Stored Procedures are predefined sets of SQL statements saved in the database that you can execute repeatedly.
+DELIMITER //
+CREATE PROCEDURE GetUserById(IN userId INT)
+BEGIN
+    SELECT * FROM users WHERE id = userId;
+END //
+DELIMITER ;
+
+Triggers are special automatic procedures that run in response to certain events on a table, such as:
+INSERT
+UPDATE
+DELETE
+
+What are common reasons for deadlocks in MySQL, and how do you resolve them?
+A deadlock happens when two or more transactions hold locks on resources and each waits for the other to release their locks — creating a cycle with no progress possible.
+MySQL detects deadlocks and automatically rolls back one transaction to break the cycle.
+Common Reasons for Deadlocks in MySQL
+1. Conflicting Lock Orders
+
+
+What is the role of EXPLAIN in MySQL?
+Shows the order of table access and join types.
+Reveals which indexes MySQL plans to use.
+Estimates the number of rows scanned.
+Indicates whether MySQL will use temporary tables or filesorts.
+Helps identify bottlenecks such as full table scans or inefficient joins.
+Prefix your query with EXPLAIN:
+EXPLAIN SELECT * FROM orders WHERE customer_id = 123;
+
+
+How do you handle high concurrency in MySQL databases?
+
+
+
+Stored Procedure in MYSQL
+A stored procedure is a named set of SQL statements that are saved and executed on the database server. Instead of sending multiple SQL queries from your application, you can call a stored procedure, which runs the predefined logic directly inside the database.
+CREATE PROCEDURE GetUserById(IN userId INT)
+BEGIN
+    SELECT * FROM users WHERE id = userId;
+END //
+DELIMITER ;
+You call it like this:
+CALL GetUserById(5);
+
+INDEX In MySQL
+An index in MySQL is a data structure that improves the speed of data retrieval operations on a table at the cost of additional writes and storage space.
+Create Index
+CREATE INDEX idx_name ON table_name (column1, column2);
+Dropping an Index
+DROP INDEX idx_name ON table_name;	
+
+
+select c.name,o.order_id as total_order
+From Customer as c Inner Join orders as o ON c.id=o.customer_id
+WHERE o.orderdate>= DATE_SUB(DATE_FORMAT(CURRDATE(),"%Y-%m-1"),INTERVAL 1 MONTH)
+and o.orderdate<DATE_FORMAT(CURRDATE(),"%Y-%m-1")
+
+Group BY c.name,
+ORDER BY total_order DESC LIMIT 10;
+Payment intent

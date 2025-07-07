@@ -1,6 +1,12 @@
 difference b/w php 5,7,8
 https://www.bestinterviewquestion.com/blog/what-is-the-difference-between-php5-and-php7#:~:text=Though%20the%20predecessor%20was%20unofficially,the%20main%20one%20being%20performance.
 
+Interface
+Final Keyword
+Persistent Cookie
+PDO
+file handling
+
 php 7 features
 Return type, Group use declaration, Anonymous class
 

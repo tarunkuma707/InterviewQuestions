@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            min-width: 40px;
+            min-height: 40px;
+            padding:20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+    <script>
+        let arr     =   ["Tarun","tushar"];
+        arr.__proto__.checkEE = "TTTTT";
+        let object  =   {
+            name:"Tarun",
+            city: "Chandigarh",
+            getIntro :function(){
+                console.log(this.name+" "+this.city);
+            }
+        }
+
+        function fuc(){
+            console.log("y");
+        }
+        let object1 = {
+            name:"Tarun Kumar",
+            city: "Delhi",
+            getIntro: function(){
+                console.log(this.name+" "+this.city);
+            }
+        }
+        let object2 = {
+            name:"Ashok",
+            city: "Punjab",
+        }
+        object2.__proto__=object1;
+    </script>
+<body>
+    <div id="grandparent">
+        <h1>Grand Parent</h1>
+        <div id="parent">
+            <h1>Parent</h1>
+            <div id="child"> <h1>child</h1></div>           
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector('#grandparent').addEventListener("click",function(event){
+        event.stopPropagation();
+        console.log("Grand Parent");
+    },false);
+    document.querySelector('#parent').addEventListener("click",function(event){
+        event.stopPropagation();
+        console.log("Parent");
+    },false);
+    document.querySelector('#child').addEventListener("click",function(event){
+        console.log("Child");
+        event.stopPropagation();
+    },false);
+</script>
+</html>

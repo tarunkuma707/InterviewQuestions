@@ -1,9 +1,26 @@
+Job queues
+Middleware
+Event Listener 
+Observer
+Job Batching
+Service Providers
+Service Containers
+Fascades
+Rate Limit
 ========================= Laravel ==============================
 constants in Laravel
 in the resource controller my request is going to edit method not destroy in Laravel
 Regular expression for validation in laravel.
 In Resource controller I dont want to use update method how can I achieve it.(In Routes we can exculde)
-Laravel Tinker
+Laravel Tinker -- See Video
+Model Observer
+Laravel Overlaping
+Cache Enable in Laravel
+Laravel Caching Problem
+make and bind method in Laravel
+difference between php artisan run queue and php artisan queue one -- Not found
+queue prioritization
+Laravel 11 Build REST APIs with JWT Authentication (Hindi) | Laravel -- See Video
 Difference between migrate fresh and migrate refresh
 Foreignkey in table using migration.
 Relationship in Laravel
@@ -11,20 +28,22 @@ How to use with in Laravel Relationship.
 Pivot table in laravel
 Template Engine
 Why we use blade template engine in Laravel.
-Base controller in Laravel.
+Base controller in Laravel. -- Not Clear
 Queue job in Laravel
 Kernel.php is used for what?
 Events and Listners in Laravel
+Export files in Laravel.
+What will happen if I dont have Service provider in my application in laraavel.
 Active Listner in Laravel
 Laravel Observer
 Laravel Events
 How to Event fire in Laravel
 How to create new file in the route folder.
-API 
+API -- Check
 CRON in Laravel.
 Email
 Data tables in laravel
-What is JWT token and how it used for authentication in Laravel api. Where it is saved.
+What is JWT token and how it used for authentication in Laravel api. Where it is saved.--cHECKE
 Passport and Sanctum in Laravel APIs.
 Where is CSRF token saved in larval.
 what will happen if I create index.php instead of index.blade.php what will be harm if we do this.
@@ -32,13 +51,15 @@ require and require one in Laravel. what is difference in both.
 SQL Injection in Laravel.
 SQL PDO methods
 Model Observers in php. Observer methods are calling directly in the application how to prevent it.
-Scheduler in Laravel when we call it called twice. Laravel overlapping. Laravel caching.
+nuler in Laravel when we call it called twice. Laravel overlapping. Laravel caching.
 Server Caching in Laravel.
 Optimize step to fast Laravel site.
 Laravel Debugger.
 prior methods Laravel optimization.
 Make and bind method in Laravel.
 what is middleware 
+What are services in laravel.
+Inheritance in Laravel. WHy we cannot use helper instead of using Inheritance in Laravel.
 Service Provide in Laravel. Number of service provider
 Service Container in Laravel. What is the purpose of it.
 Predefined methods in Laravel
@@ -53,27 +74,24 @@ Best method to fetch heavy data from sql.
 Backup of database in Laravel
 Send bulk email using Laravel. (Queue) Logging if error
 Explain Laravel's lifecycle from request to response.
-
 What is Lazy vs Eager loading in Eloquent?
-
 How does Laravel handle caching (Redis, file, database)?
-
 Unit Testing vs Feature Testing in Laravel.
-
 How do you optimize Laravel performance?
-
 Difference between Laravel Job and Event.
-
 Handling WebSockets with Laravel (e.g., Laravel Echo + Pusher).
-
 Laravel Octane vs traditional Laravel.
-
 Explain rate limiting in Laravel APIs.
-
 How to create packages in Laravel?
-1. Explain Laravel's Request Lifecycle in Detail
+Explain Laravel's Request Lifecycle in Detail
 What happens when a request hits public/index.php?
-
+scaffold in Laravel
+Auth::attempt
+Guard in Laravel
+Policies and Gates
+Bust dispatching in Laravel
+Batch processing
+How to create a batch
 How does routing get resolved?
 
 How are middleware processed?
@@ -128,11 +146,12 @@ Laravel testing helpers: actingAs(), withoutMiddleware(), assertSee().
 How to structure a reusable Laravel package?
 
 What is composer.json autoload configuration?
-
+What is the use of config folder in Laravel	
 Registering service providers, publishing config files, and views.
 
 🔹 9. Task Scheduling
 How to schedule tasks using app/Console/Kernel.php?
+Difference between cron job and scheduler 
 
 Explain ->daily(), ->weeklyOn(), ->everyMinute() etc.
 
@@ -158,7 +177,7 @@ RateLimiter::for('api', function (Request $request) {
 Global scopes, local scopes.
 
 Custom collections, accessors, mutators.
-
+x
 Complex hasManyThrough, morphToMany relationships.
 
 🔹 13. Advanced Routing & Middleware
@@ -219,3 +238,430 @@ User-based tenant isolation
 Role-based access control
 
 Subdomain or folder-based multi-tenancy
+https://www.youtube.com/watch?v=exmSJpJvIPs
+
+
+Facades is a design pattern which provides static interface to the classes which are registered inside the application service container.
+Procedural 
+How to debug Procedural
+Unit Test
+
+
+Given a string of words, you need to find the highest scoring word.
+Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+For example, the score of abad is 8 (1 + 2 + 1 + 4).
+Output the highest scoring word as a string along with it's score.
+All input letters will be lowercase.
+ 
+Eg.
+$input = "lorem ipsum dolor sit amet test";
+ 
+Output:
+ipsum - 78
+<?php
+function wordScore($word) {
+    $score = 0;
+    $letters = str_split($word);
+    foreach ($letters as $char) {
+        // ord('a') is 97, so a = 1, b = 2, ..., z = 26
+        $score += ord($char) - ord('a') + 1;
+    }
+    return $score;
+}
+
+function highestScoringWord($input) {
+    $words = explode(' ', $input);
+    $highestScore = 0;
+    $highestWord = '';
+
+    foreach ($words as $word) {
+        $score = wordScore($word);
+        if ($score > $highestScore) {
+            $highestScore = $score;
+            $highestWord = $word;
+        }
+    }
+
+    return $highestWord . ' - ' . $highestScore;
+}
+
+// Example input
+$input = "lorem ipsum dolor sit amet test";
+echo highestScoringWord($input);
+=================== Second Way =====================
+<?php
+function highestScoringWord($input) {
+    // Map each letter to its score: a = 1, b = 2, ..., z = 26
+    $alphabet = array_flip(range('a', 'z'));
+    foreach ($alphabet as $letter => $index) {
+        $alphabet[$letter] = $index + 1;
+    }
+
+    $words = explode(' ', $input);
+    $highestScore = 0;
+    $highestWord = '';
+
+    foreach ($words as $word) {
+        $letters = str_split($word);
+        $score = 0;
+        foreach ($letters as $char) {
+            $score += $alphabet[$char] ?? 0; // Use 0 for non-letter characters
+        }	
+
+        if ($score > $highestScore) {
+            $highestScore = $score;
+            $highestWord = $word;
+        }
+    }
+
+    return $highestWord . ' - ' . $highestScore;
+}
+
+// Example usage
+$input = "lorem ipsum dolor sit amet test";
+echo highestScoringWord($input);
+===================================================
+
+Encryption difference between 
+$sentence = "php is great and PHP is powerful and PHP is everywhere";
+ 	
+function findwords($sentence);
+      OUTPUT:
+        php - 3
+               is - 3
+        and - 2
+
+$string =strtolower("php is great and PHP is powerful and PHP is everywhere");
+$explodeString = explode(" ",$string);
+$countValues = array_count_values($explodeString);
+arsort($countValues);
+$check=1;
+foreach($countValues as $kx=>$values){
+    if($check<=3){
+        echo $kx."-".$values."<br/>";
+    }
+    $check++;
+}
+Dependency Injection --- Need to clarify more
+Contractors
+Policies
+Many to many
+Linux commands php
+<window class="onload"></window>
+how to start apache
+sudo systemctl start apache
+sudo systemctl restart apache
+sudo systemctl stop apache
+sudo systemctl status apache
+sudo apachectl -t
+sudo systemctl reload apache2
+Docker
+MySQL query to fetch the usernme which are palindromes
+
+name    salry    category
+ 
+ritiesh   5000    minsalry
+ 
+id username salary  
+ 
+1    test            5000
+2     tarun        10000
+3      kumar       15000
+4      isma           10000
+5     jenif             5000
+6       gobu         15000
+
+SELECT 
+    *,
+    CASE
+        WHEN salary <= 5000 THEN 'less salary'
+        WHEN salary <= 10000 THEN 'average'
+        WHEN salary > 15000 THEN 'high salary'
+        ELSE 'medium'
+    END AS category
+FROM 
+    employee;
+==========
+ delete the user who doesn not logged in form last one year
+DELETE FROM users
+WHERE last_login < NOW() - INTERVAL 1 YEAR;
+==========================================
+Securing website
+Find Top 3 Most Frequent Words in a Sentence
+hasing in php
+
+<?php
+$nums = array(0, 1, 2, 3, 4, 5, 6);
+$target = 7;
+
+$pairs = array();
+
+$length = count($nums);
+for ($i = 0; $i < $length; $i++) {
+    for ($j = $i + 1; $j < $length; $j++) {
+        if ($nums[$i] + $nums[$j] == $target) {
+            $pairs[] = array($nums[$i], $nums[$j]);
+        }
+    }
+}
+
+// Output the pairs
+foreach ($pairs as $pair) {
+    echo "(" . $pair[0] . ", " . $pair[1] . ")\n";
+}
+?>
+
+=================================
+Promises
+CURL
+AJAX
+Relations in Laravel
+traits
+Traits conflication
+trait A {
+    public function sayHello() {
+        echo "Hello from A";
+    }
+}
+
+trait B {
+    public function sayHello() {
+        echo "Hello from B";
+    }
+}
+
+class MyClass {
+    use A, B {
+        B::sayHello insteadof A;
+        A::sayHello as sayHelloFromA;
+    }
+}
+
+$obj = new MyClass();
+$obj->sayHello();         // Hello from B
+$obj->sayHelloFromA();    // Hello from A
+
+
+$this->hasOne(Phone::class);
+$this->belongsTo(User::class)
+
+One to many
+$this->hasMany(Comment::class);
+$this->belongsTo(Post::class);
+
+
+Many to Many Relationships
+User
+$this->belongsToMany(Role::class)
+
+$this->belongsToMany(User::class)
+
+One to One Polymorphic
+$this->morphOne(Image::class)
+$this->morphTo(User::class)
+
+One to May
+$this->morphMany(Comment::class)
+$this->morphMany(Comment::class)
+
+Many to Many
+$this->morphtoMany(Tag::class)
+$this->morphtoMany(Tag::class)
+
+
+Basic Laravel Interview Questions
+What is Laravel?
+
+What are the main features of Laravel?
+
+What is MVC architecture?
+
+What is the latest version of Laravel? (Tip: Check with php artisan --version or online)
+
+What is Artisan?
+
+How do you install Laravel?
+
+What are service providers in Laravel?
+
+What is middleware in Laravel?
+
+What is a route and how do you define one?
+
+What is CSRF protection? How does Laravel handle it?
+
+⚙️ Intermediate Laravel Interview Questions
+What are Laravel facades?
+
+Explain the difference between hasOne, hasMany, belongsTo, and belongsToMany.
+
+How does Laravel’s Eloquent ORM work?
+
+What is a migration in Laravel?
+
+How do you use Laravel’s validation system?
+
+What are observers in Laravel?
+
+Explain dependency injection in Laravel.
+
+What is a seeder and how is it used?
+
+What is the difference between Auth::user() and auth()->user()?
+
+How do you send emails in Laravel?
+
+🚀 Advanced Laravel Interview Questions
+What are service containers in Laravel?
+
+What is a repository pattern and how do you implement it in Laravel?
+
+How does Laravel handle events and listeners?
+
+How do you queue jobs in Laravel?
+
+Explain Laravel’s task scheduling.
+
+How does Laravel handle localization and internationalization?
+
+How do you implement API authentication using Laravel Sanctum or Passport?
+
+What are custom macros in Laravel?
+
+How do you use Laravel Telescope for debugging?
+
+How would you optimize a slow Laravel application?
+
+🧪 Testing in Laravel
+What is PHPUnit and how does Laravel use it?
+
+How do you write a feature test in Laravel?
+
+What is the difference between a unit test and a feature test?
+
+How do you use Laravel’s built-in assertions in testing?
+
+How do you mock external services in Laravel tests?
+
+📦 Bonus: Laravel Ecosystem Questions
+What is Laravel Nova?
+
+What is Laravel Vapor?
+
+Explain Laravel Mix and how it's used in asset compilation.
+
+How do you deploy a Laravel application to production?
+
+What tools do you use to monitor a Laravel application in production?
+
+"Raman's opinion is \"PHP is very good language.\""
+
+
+Nishant Panjwani
+
+SELECT count(*),departments.department_name FROM employees INNER JOIN departments ON employees.department_id=departments.department_id GROUP BY departments.department_name ORDER BY COUNT(*) DESC LIMIT 0,1;
+
+<?php
+// Online PHP compiler to run PHP program online
+// Print "Try programiz.pro" message
+function calc($number,$x){
+   $result = array();
+   $remainingValues = 0;
+   for($i=1;$i<=$x;$i++){
+       $getNumber = $number/$x;
+       if(is_int($getNumber)){
+            array_push($result,$getNumber);   
+       }
+       else{
+           if($i<=$x-1){
+                $remainingValues += $getNumber - (int)$getNumber;
+                array_push($result,(int)$getNumber);
+           }
+           if($i==$x-1){
+               $addValue = $remainingValues + $getNumber;
+               array_push($result,$addValue);
+           }
+       }
+   }
+    return $result;
+}
+$returnResult = calc(100,3);
+print_r($returnResult);
+?>
+Stored Procedure
+Fine or findFail
+Authentication
+boiler Plate
+Code Review
+PR Request
+Solid 
+Command pattern
+Singleton design pattern
+Time Complexity
+Token Based 
+Token Expired
+Job and QUeues
+ORM use ful for 
+Test Driven Development
+Unit Testing
+
+https://techtoolindia.com/how-to-insert-bulk-fake-data-in-laravel-9-using-factory-seeder
+
+Fine-Coursera
+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
+
+Fine-test
+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
+
+
+Qwikgig
+
+
+SELECT 
+    user_id, 
+    COUNT(*) AS total_orders
+FROM 
+    orders
+WHERE 
+    order_date >= DATE_FORMAT(CURRENT_DATE - INTERVAL 1 MONTH, '%Y-%m-01') AND
+    order_date < DATE_FORMAT(CURRENT_DATE, '%Y-%m-01')
+GROUP BY 
+    user_id
+ORDER BY 
+    total_orders DESC
+LIMIT 5;
+
+
+yield in laravel
+Request validation
+
+You have User and Post models (1:N).
+Write code to:
+Load all users with their posts (title only)
+Order users by number of posts (desc)
+Avoid N+1 problem
+
+Inner Join, LEFT JOIN, RIGHT JOIN, FULL JOIN
+
+Find customers who placed at least one cancelled at least one completed order
+SELECT c.*,o.*
+FROM customer c
+RIGHT JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.status IN ('completed', 'cancelled')
+GROUP BY c.customer_id
+HAVING COUNT(DISTINCT order_status) = 2; 
+
+Write a query in mysql to fech those customer who registered 6 monthss ago but not placed any order from last 3 months
+SELECT DISTINCT first_name,last_name from customer RIGHT JOIN orders ON customer.customer_id=orders.customer_id WHERE customer.created_at <= CURDATE() - INTERVAL 6 MONTH AND order_date <= CURDATE() - INTERVAL 3 MONTH;
+
+
+Get the customers who have at least one complete order and one cancelled order
+SELECT user_id
+FROM orders
+WHERE status IN ('completed', 'cancelled')
+GROUP BY user_id
+HAVING 
+    SUM(status = 'completed') > 0 AND
+    SUM(status = 'cancelled') > 0;
+
+SELECT c.customer_id, SUM(o.total_amount) FROM customer AS c INNER JOIN orders AS o ON c.customer_id=o.customer_id WHERE o.order_date >= DATE_SUB(DATE_FORMAT(CURDATE(), '%Y-%m-01'), INTERVAL 1 MONTH) GROUP BY c.customer_id ORDER BY `SUM(o.total_amount)` DESC LIMIT 3

@@ -1,0 +1,34 @@
+cors
+Dependency Injection
+SOLID
+traits
+Namespace
+Operator Overloading and Operator overwrite
+Get and set method in php
+Abstract, Encapsulation Interface
+
+
+1.What is the difference between `==` and `===` in PHP? When should you use each?
+
+2.How does PHP handle sessions and cookies? What are the key differences between the two?
+
+3.Explain the concept of variable scope in PHP. What are global, local, and static scopes?
+
+4.What are magic methods in PHP? Can you name a few and explain their purpose?
+
+5.How does error handling work in PHP? What’s the difference between `try-catch` blocks and custom error handlers?
+
+6.What are traits in PHP and how are they different from inheritance?
+
+7.Explain how you can prevent SQL injection in PHP. What are prepared statements and why are they important?
+
+8.What is the difference between `include`, `require`, `include_once`, and `require_once`?
+
+9.How does garbage collection work in PHP? When are objects destroyed?
+
+10.What’s the difference between GET and POST methods in form handling? When should each be used?
+
+SELECT Customers.CustomerID, Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+LEFT JOIN Customers
+ON Orders.CustomerID=Customers.CustomerID;

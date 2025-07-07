@@ -1,0 +1,150 @@
+Observer
+Job and Queue Priority
+supervisor
+Job batching
+Laravel life cycle
+multiple job
+Laravel Macros
+Multiple Database in Laravel
+Fascades
+Morphto hasmany
+Cursor Method
+Easy collection
+Casting
+Group Concate
+Stored Procedure
+
+2 tables
+Entry Tabe
+Emp id, name, Salar, Email, Departmentid
+
+Department Table
+
+string reverse without function
+@nd highest number of employe in a department
+git stuash
+rebase
+
+var x = 100;
+ 
+function xyz() {
+  if (false) {
+    var x = 200;
+  }
+  console.log(x);
+}
+ 
+xyz();
+call apply
+
+https://www.youtube.com/watch?v=9cQsv91zBsc
+
+semantic tags
+meta tags
+Immediate invoke function
+Hoisting
+let and var difference
+event loop
+precedence of event loop
+settimeout and setinterval
+ES6 new feature
+rest operator, spread operator -- Learn again
+shallow and deep copy difference -- Not closure
+closure
+reduce function in javascript -- Learn
+reduce parameters 
+reduce and map,filter difference in javascript
+filter
+promise and callback difference
+check palindrome string in javascript
+postion in css difference in attribute.
+box model
+flexbox
+display none and visibility hidden 
+display flex
+console.log(this)
+Hooks in react
+how to pass data from child to parent--Learn
+https://medium.com/@ozhanli/passing-data-from-child-to-parent-components-in-react-e347ea60b1bb
+
+useMemo
+UseEffect
+UseState
+Usecallback
+
+class based life cycle
+construct
+getDerivedStateFromProps
+render
+componentDidMount()
+shouldcomponentUpdate()
+getSnapshotBeforeUpdate()
+ComponentdidUpdate()
+ComponentWillUnmount()
+
+
+functional based Life Cycle
+https://manikandan-b.medium.com/react-functional-component-lifecycle-e8525f8fadea
+
+states and props
+getdrivedstate
+Pure components
+controlled and uncontrolled components
+contextAPI and Redux when to use.
+Redux structure and what are the pillars of Redux.
+Higher Order Components
+useEffect for component lifecycle
+Redux
+we already have statemanagement in react then we have redux
+How redux works
+middleware in reactjs
+call API in redux
+extra reducer
+lazy loading and code spliti
+React Portals
+Profilers
+Render props
+Prop drilling for small projects
+Pure Functions
+UseRef Hook where to use.
+Difference between useMemo and UseCallback
+Can we put our hooks in our variable.
+
+life cycle method of reactjs
+how to use UseEffect in component life cycle
+what is prob drilling and how to avoid it.
+Redux and contextAPI
+useReducer and UseState difference.
+usereducer and useSelector
+main use of UseDispatch and useSelector
+Middleware in Redux
+Why we need to use Middleware
+why we should use TypeScript instead of JavaScript
+server side rendering in react.
+Unittesting in react
+Multilingual in react
+user api load this data
+what is the difference between promise, callback and async await
+object prototype
+event bubbling and event capture
+object destructuring 
+forin loop
+fetch API and
+
+https://www.youtube.com/watch?v=RapcagVtB-0
+https://www.youtube.com/watch?v=9cQsv91zBsc
+https://www.youtube.com/watch?v=C1cpbFctYU8
+https://medium.com/@a.pouryousefi98/react-lifecycles-with-useeffect-480e67d11eb2
+
+
+
+Interview Front End
+=================================
+const abc = {a:1, b:2, c:3}
+let {a,b,c}= abc
+Sahil Narang
+3:50 PM
+let {a,b,c,d} = abc
+Higher Order Components
+Process.next
+node.js

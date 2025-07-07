@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const p1    = new Promise((resolve,reject)=>{
+        setTimeout(function(){
+            resolve("P1 Resolved");
+        },10000)
+    });
+    const p2    = new Promise((resolve,reject)=>{
+        setTimeout(function(){
+            resolve("P2 Resolved");
+        },20000)
+    });
+
+    async function handlepromise(){
+        const pro1 = await p1;
+        console.log("p1 resolved");
+        const pro2 = await p2;
+        console.log("p2 resolved");
+        console.log("Normal");
+    }
+    handlepromise();
+    function normalFunction(){
+        console.log("Normal function");
+    }
+    normalFunction();
+</script>
