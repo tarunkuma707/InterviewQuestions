@@ -641,27 +641,13 @@ Load all users with their posts (title only)
 Order users by number of posts (desc)
 Avoid N+1 problem
 
-Inner Join, LEFT JOIN, RIGHT JOIN, FULL JOIN
 
-Find customers who placed at least one cancelled at least one completed order
-SELECT c.*,o.*
-FROM customer c
-RIGHT JOIN orders o ON c.customer_id = o.customer_id
-WHERE o.status IN ('completed', 'cancelled')
-GROUP BY c.customer_id
-HAVING COUNT(DISTINCT order_status) = 2; 
+Rule unique on specific email id (admin@test.com)
+'email' => 'unique:users,email_address,'.$user->id
+RUle::unique('users','email')->where(function ($query){
+    return $query->where('email','!=','admin@test.com')
+});
+ Cursor in laravel
 
-Write a query in mysql to fech those customer who registered 6 monthss ago but not placed any order from last 3 months
-SELECT DISTINCT first_name,last_name from customer RIGHT JOIN orders ON customer.customer_id=orders.customer_id WHERE customer.created_at <= CURDATE() - INTERVAL 6 MONTH AND order_date <= CURDATE() - INTERVAL 3 MONTH;
-
-
-Get the customers who have at least one complete order and one cancelled order
-SELECT user_id
-FROM orders
-WHERE status IN ('completed', 'cancelled')
-GROUP BY user_id
-HAVING 
-    SUM(status = 'completed') > 0 AND
-    SUM(status = 'cancelled') > 0;
-
-SELECT c.customer_id, SUM(o.total_amount) FROM customer AS c INNER JOIN orders AS o ON c.customer_id=o.customer_id WHERE o.order_date >= DATE_SUB(DATE_FORMAT(CURDATE(), '%Y-%m-01'), INTERVAL 1 MONTH) GROUP BY c.customer_id ORDER BY `SUM(o.total_amount)` DESC LIMIT 3
+ In laravel there is one to many relationship with User and post. Write a query to fetch only the title of the post
+ $users = User::with(['posts:id,user_id,title'])->get();
