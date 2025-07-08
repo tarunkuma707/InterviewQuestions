@@ -295,3 +295,10 @@ and o.orderdate<DATE_FORMAT(CURRDATE(),"%Y-%m-1")
 Group BY c.name,
 ORDER BY total_order DESC LIMIT 10;
 Payment intent
+
+Rule unique on specific email id (admin@test.com)
+'email' => 'unique:users,email_address,'.$user->id
+RUle::unique('users','email')->where(function ($query){
+    return $query->where('email','!=','admin@test.com')
+});
+ Cursor in laravel
