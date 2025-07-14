@@ -63,3 +63,115 @@ We have state management in react then why we are using redux
 ==========Machine Code =========
 https://www.youtube.com/watch?v=yitelFyogRk
 
+
+
+console.log('Start');
+
+There is an integer array nums sorted in ascending order (with distinct values).
+
+Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+
+Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+process.nextTick(() => {
+  console.log('nextTick');
+});
+ 
+setTimeout(() => {
+  console.log('setTimeout');
+}, 0);
+ 
+setImmediate(() => {
+  console.log('setImmediate');
+});
+ 
+console.log('End');
+
+SELECT d.department_name as departmentName, count(e.id) as employee_count FROM department d LEFT JOIN employees e ON d.id = e.department_id GROUP BY d.department_name ORDER BY d.id
+
+ou are given two tables:
+employees
+id
+	
+name
+	
+department_id
+
+
+1
+	
+Alice
+	
+10
+
+
+2
+	
+Bob
+	
+20
+
+
+3
+	
+Charlie
+	
+10
+
+
+4
+	
+David
+	
+30
+
+
+5
+	
+Eva
+	
+NULL
+departments
+id
+	
+name
+
+
+10
+	
+Engineering
+
+
+20
+	
+HR
+
+
+30
+	
+Sales
+Write a SQL query to return the names of all departments along with the count of employees in each department.
+Include departments that have zero employees as well.
+ 
+✅ Expected Output:
+department_name
+	
+employee_count
+
+
+Engineering
+	
+2
+
+
+HR
+	
+1
+
+
+Sales
+	
+1
+	•		•	Note: Eva should not be counted as her department_id is NULL. Departments with 0 employees should still appear with a count of 0.
